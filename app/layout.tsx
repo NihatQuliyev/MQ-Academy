@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import SessionWrapper from "@/components/SessionWrapper";
 import ConditionalShell from "@/components/ConditionalShell";
 
 const inter = Inter({
@@ -20,9 +19,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="az" className={inter.variable}>
       <body>
-        <SessionWrapper>
-          <ConditionalShell>{children}</ConditionalShell>
-        </SessionWrapper>
+        <ConditionalShell>{children}</ConditionalShell>
       </body>
     </html>
   );
