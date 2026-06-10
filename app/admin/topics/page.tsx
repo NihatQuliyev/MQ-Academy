@@ -73,7 +73,7 @@ export default function AdminTopicsPage() {
       const data: Section[] = await r.json();
       const map: Record<DilKey, Section | null> = { az: null, ru: null };
       for (const sec of data) {
-        if (sec.dil === "az" || sec.dil === "en" || sec.dil === "ru") {
+        if (sec.dil === "az" || sec.dil === "ru") {
           map[sec.dil] = sec;
         }
       }
