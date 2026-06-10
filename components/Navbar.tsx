@@ -256,7 +256,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {mobile && (
-        <div className="lg:hidden border-t border-white/15" style={{ background: "#C44E0C" }}>
+        <div className="lg:hidden border-t border-white/15 fixed top-[60px] left-0 right-0 bottom-0 overflow-y-auto z-50" style={{ background: "#C44E0C" }}>
           <div className="px-4 py-3 flex flex-col gap-0.5">
             {tr.nav.akademiyaItems.map((l, i) => (
               <Link key={akademiyaHrefs[i]} href={akademiyaHrefs[i]}
