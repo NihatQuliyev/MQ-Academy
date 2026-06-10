@@ -20,7 +20,7 @@ const programHrefs = [
 ];
 const programIcons: ProgramIconKey[] = ["pen","trend","award","globe","book","clip","monitor","sun"];
 
-const akademiyaHrefs = ["/about", "/vision", "/careers"];
+const akademiyaHrefs = ["/about", "/vision", "/careers", "/contact"];
 const examHrefs = ["/exams", "/results"];
 
 const socials = [
