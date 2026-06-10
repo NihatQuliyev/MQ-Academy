@@ -1,5 +1,4 @@
 "use client";
-import { signIn } from "next-auth/react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
@@ -14,14 +13,25 @@ export default function AdminLogin() {
     e.preventDefault();
     setLoading(true);
     setError("");
-    const res = await signIn("credentials", { username, password, redirect: false });
-    if (res?.ok) {
+    const res = await fetch("/api/auth/callback/credentials", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams({ username, password, csrfToken: await getCsrfToken(), redirect: "false", callbackUrl: "/admin", json: "true" }),
+    });
+    const data = await res.json().catch(() => null);
+    if (res.ok && data?.url && !data?.error) {
       router.push("/admin");
     } else {
       setError("İstifadəçi adı və ya şifrə yanlışdır");
     }
     setLoading(false);
   };
+
+  async function getCsrfToken() {
+    const r = await fetch("/api/auth/csrf");
+    const d = await r.json();
+    return d.csrfToken ?? "";
+  }
 
   return (
     <div className="min-h-screen bg-paper flex items-center justify-center px-4">

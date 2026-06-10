@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { signOut } from "next-auth/react";
 
 const links = [
   { href: "/admin", label: "Dashboard", exact: true },
@@ -41,7 +40,10 @@ export default function AdminNav() {
         })}
       </div>
 
-      <button onClick={() => signOut({ callbackUrl: "/admin-login" })}
+      <button onClick={async () => {
+          await fetch("/api/auth/signout", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: new URLSearchParams({ csrfToken: await fetch("/api/auth/csrf").then(r => r.json()).then(d => d.csrfToken) }) });
+          window.location.href = "/admin-login";
+        }}
         className="text-white/65 hover:text-white text-sm font-medium flex items-center gap-1.5 transition-colors">
         Çıxış ↗
       </button>
