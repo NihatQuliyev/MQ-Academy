@@ -56,10 +56,10 @@ export default function ExamsList({
           {exams.map((exam) => {
             const { day, month } = formatDate(exam.date);
             return (
-              <div key={exam.id} className="bg-white border border-ink/[0.08] rounded-2xl p-6 grid grid-cols-[90px_1fr_auto] gap-5 items-center hover:border-orange hover:shadow-md transition-all duration-200 cursor-pointer" onClick={() => window.location.href = `/exams/${exam.id}`}>
+              <div key={exam.id} className="bg-white border border-ink/[0.08] rounded-2xl p-4 sm:p-6 grid grid-cols-[70px_1fr] sm:grid-cols-[90px_1fr_auto] gap-3 sm:gap-5 items-start sm:items-center hover:border-orange hover:shadow-md transition-all duration-200 cursor-pointer" onClick={() => window.location.href = `/exams/${exam.id}`}>
                 {/* Date */}
-                <div className="flex flex-col items-center bg-orange-tint rounded-xl px-3 py-4 text-center">
-                  <span className="text-4xl font-semibold text-orange-deep leading-none tracking-tight">{day}</span>
+                <div className="flex flex-col items-center bg-orange-tint rounded-xl px-2 sm:px-3 py-3 sm:py-4 text-center">
+                  <span className="text-3xl sm:text-4xl font-semibold text-orange-deep leading-none tracking-tight">{day}</span>
                   <span className="text-xs font-semibold text-orange-deep uppercase tracking-wider mt-1">{month}</span>
                 </div>
 
@@ -86,7 +86,7 @@ export default function ExamsList({
                 </div>
 
                 {/* Side */}
-                <div className="flex flex-col items-end gap-2">
+                <div className="col-span-2 sm:col-span-1 flex flex-row sm:flex-col items-center sm:items-end justify-between sm:justify-start gap-2">
                   <span className="text-sm font-semibold text-ink">{exam.time}</span>
                   {exam.hasTopics && (
                     <Link

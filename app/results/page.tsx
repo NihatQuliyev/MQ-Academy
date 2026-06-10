@@ -74,17 +74,17 @@ export default function ResultsPage() {
 
       <section className="px-6 md:px-12 pb-24">
         {/* Search box */}
-        <div className="rounded-3xl p-10 mb-8 relative overflow-hidden" style={{ background: "#2C1A0E" }}>
+        <div className="rounded-3xl p-6 md:p-10 mb-8 relative overflow-hidden" style={{ background: "#2C1A0E" }}>
           <div className="absolute top-0 right-0 w-96 h-96 opacity-20 blur-3xl pointer-events-none"
             style={{ background: "radial-gradient(circle, rgba(238,106,26,0.5), transparent 70%)" }} />
           <div className="relative max-w-2xl">
-            <h3 className="text-3xl font-medium text-white mb-3 tracking-tight">
+            <h3 className="text-xl md:text-3xl font-medium text-white mb-3 tracking-tight">
               Sınaq imtahanının <span className="text-orange-2">tam nəticəsi.</span>
             </h3>
             <p className="text-sm text-white/60 mb-7">
               Hər fənn üzrə cavab cədvəlinizi, düzgün/səhv statistikanızı və ümumi balınızı görün.
             </p>
-            <div className="flex gap-2 mb-4">
+            <div className="flex flex-col sm:flex-row gap-2 mb-4">
               <input
                 value={code}
                 onChange={(e) => setCode(e.target.value)}

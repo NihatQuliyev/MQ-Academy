@@ -22,7 +22,7 @@ export default function ProgramsPage() {
             <Link
               key={p.slug}
               href={`/programs/${p.slug}`}
-              className="card p-9 flex items-start gap-6 group relative overflow-hidden no-underline"
+              className="card p-5 md:p-9 flex items-start gap-4 md:gap-6 group relative overflow-hidden no-underline"
             >
               <div className="w-14 h-14 rounded-2xl bg-orange-tint flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-200">
                 <ProgramIcon iconKey={p.icon} />

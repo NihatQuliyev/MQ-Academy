@@ -8,12 +8,11 @@ interface TopicSubject { id: number; name: string; order: number; items: TopicIt
 interface TopicSection { dil: string; subjects: TopicSubject[]; }
 interface Section { bolme: string; sinif: string; qrup: string; }
 
-type DilKey = "az" | "en" | "ru";
+type DilKey = "az" | "ru";
 
 const DIL_META: Record<DilKey, { label: string; flag: string; activeClass: string }> = {
-  az: { label: "Azərbaycan dili", flag: "🇦🇿", activeClass: "bg-orange text-white" },
-  en: { label: "İngilis dili",    flag: "🇬🇧", activeClass: "bg-sky-500 text-white" },
-  ru: { label: "Rus dili",        flag: "🇷🇺", activeClass: "bg-blue-600 text-white" },
+  az: { label: "Azərbaycan bölməsi", flag: "🇦🇿", activeClass: "bg-orange text-white" },
+  ru: { label: "Rus bölməsi",        flag: "🇷🇺", activeClass: "bg-blue-600 text-white" },
 };
 
 const SUBJECT_ICONS: Record<string, JSX.Element> = {

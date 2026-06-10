@@ -28,18 +28,17 @@ interface ExamOption {
   category: string;
 }
 
-type DilKey = "az" | "en" | "ru";
+type DilKey = "az" | "ru";
 
 const DIL_OPTIONS: { key: DilKey; label: string; flag: string; color: string }[] = [
-  { key: "az", label: "Azərbaycan dili", flag: "🇦🇿", color: "bg-orange" },
-  { key: "en", label: "İngilis dili",    flag: "🇬🇧", color: "bg-sky-500" },
-  { key: "ru", label: "Rus dili",        flag: "🇷🇺", color: "bg-blue-600" },
+  { key: "az", label: "Azərbaycan bölməsi", flag: "🇦🇿", color: "bg-orange" },
+  { key: "ru", label: "Rus bölməsi",        flag: "🇷🇺", color: "bg-blue-600" },
 ];
 
 export default function AdminTopicsPage() {
   const [exams, setExams]                   = useState<ExamOption[]>([]);
   const [selectedExamId, setSelectedExamId] = useState<number | null>(null);
-  const [sections, setSections]             = useState<Record<DilKey, Section | null>>({ az: null, en: null, ru: null });
+  const [sections, setSections]             = useState<Record<DilKey, Section | null>>({ az: null, ru: null });
   const [activeDil, setActiveDil]           = useState<DilKey>("az");
   const [loading, setLoading]               = useState(false);
   const [creating, setCreating]             = useState(false);
@@ -68,11 +67,11 @@ export default function AdminTopicsPage() {
   // Load all sections for selected exam
   const loadSections = async (examId: number) => {
     setLoading(true);
-    setSections({ az: null, en: null, ru: null });
+    setSections({ az: null, ru: null });
     const r = await fetch(`/api/topics/sections?examId=${examId}`);
     if (r.ok) {
       const data: Section[] = await r.json();
-      const map: Record<DilKey, Section | null> = { az: null, en: null, ru: null };
+      const map: Record<DilKey, Section | null> = { az: null, ru: null };
       for (const sec of data) {
         if (sec.dil === "az" || sec.dil === "en" || sec.dil === "ru") {
           map[sec.dil] = sec;

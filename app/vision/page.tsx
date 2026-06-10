@@ -11,12 +11,12 @@ export default function VisionPage() {
       <section className="px-6 md:px-12 pb-24">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {/* Mission */}
-          <div className="bg-white border border-ink/[0.08] rounded-3xl p-11 relative overflow-hidden">
+          <div className="bg-white border border-ink/[0.08] rounded-3xl p-6 md:p-11 relative overflow-hidden">
             <div className="flex items-center gap-3 mb-6">
               <img src="/logo.svg" alt="MQ" className="w-7 h-7 rounded-full bg-orange-tint object-contain p-0.5" />
               <span className="text-xs font-semibold text-orange uppercase tracking-widest">Missiyamız</span>
             </div>
-            <h2 className="text-3xl font-semibold text-ink mb-5 leading-tight tracking-tight">
+            <h2 className="text-2xl md:text-3xl font-semibold text-ink mb-5 leading-tight tracking-tight">
               Hər bir şagirdin daxilindəki <span className="text-orange">potensialı</span> kəşf etmək.
             </h2>
             <p className="text-base text-ink-3 leading-relaxed">
@@ -28,7 +28,7 @@ export default function VisionPage() {
           </div>
 
           {/* Vision */}
-          <div className="rounded-3xl p-11 relative overflow-hidden" style={{ background: "#2C1A0E" }}>
+          <div className="rounded-3xl p-6 md:p-11 relative overflow-hidden" style={{ background: "#2C1A0E" }}>
             <div className="absolute top-0 right-0 w-72 h-72 opacity-20 blur-3xl pointer-events-none"
               style={{ background: "radial-gradient(circle, rgba(238,106,26,0.5), transparent 70%)" }} />
             <div className="relative">
@@ -36,7 +36,7 @@ export default function VisionPage() {
                 <div className="w-7 h-7 rounded-full bg-orange text-white flex items-center justify-center text-xs font-bold">V</div>
                 <span className="text-xs font-semibold text-orange-2 uppercase tracking-widest">Vizyonumuz</span>
               </div>
-              <h2 className="text-3xl font-bold text-white mb-5 leading-tight">
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-5 leading-tight">
                 Ölkənin ən çox <span className="text-orange-2">güvənilən</span> təhsil mərkəzinə çevrilmək.
               </h2>
               <p className="text-base text-white/75 leading-relaxed">

@@ -28,7 +28,7 @@ export default async function CareersPage() {
         ) : (
           <div className="flex flex-col gap-4 mb-12">
             {vacancies.map((v) => (
-              <div key={v.id} className="bg-white border border-ink/[0.08] rounded-2xl px-8 py-7 grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-5 items-center hover:border-orange hover:shadow-md transition-all duration-200">
+              <div key={v.id} className="bg-white border border-ink/[0.08] rounded-2xl px-5 py-5 md:px-8 md:py-7 grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-4 md:gap-5 items-start lg:items-center hover:border-orange hover:shadow-md transition-all duration-200">
                 <Link href={`/careers/${v.id}`} className="no-underline flex-1 min-w-0">
                   <h2 className="text-2xl font-semibold text-ink mb-3 tracking-tight hover:text-orange transition-colors">{v.title}</h2>
                   <div className="flex flex-wrap gap-4 text-sm text-muted mb-3">
