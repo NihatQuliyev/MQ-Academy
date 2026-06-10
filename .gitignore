@@ -1,0 +1,11 @@
+.env
+.env.local
+node_modules/
+.next/
+out/
+prisma/db.sqlite
+prisma/db.sqlite-journal
+*.db
+*.sqlite
+public/uploads/
+.idea/
