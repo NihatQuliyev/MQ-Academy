@@ -3,6 +3,16 @@ const nextConfig = {
   experimental: {
     serverComponentsExternalPackages: ["xlsx"],
   },
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        "next-auth/react": false,
+        "next-auth": false,
+      };
+    }
+    return config;
+  },
   async headers() {
     return [
       {
