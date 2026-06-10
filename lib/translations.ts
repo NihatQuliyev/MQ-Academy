@@ -94,10 +94,8 @@ const t = {
       postsMore: "Bütün xəbərlər →",
     },
     stats: [
-      { num: "5+",   label: "İllik təcrübə",     sub: "2019-cu ildən fəaliyyətdəyik" },
-      { num: "2000+", label: "Məzun",             sub: "Uğurla bitirən tələbələr" },
-      { num: "95%",  label: "Qəbul faizi",        sub: "Abituriyent proqramında" },
-      { num: "4",    label: "Filial",              sub: "Bakı daxilindəki filiallarımız" },
+      { num: "4",  label: "Filial",         sub: "Bakı və Abşeron" },
+      { num: "8",  label: "Tədris sahəsi",  sub: "Geniş proqram" },
     ],
   },
 
@@ -196,10 +194,8 @@ const t = {
       postsMore: "All news →",
     },
     stats: [
-      { num: "5+",   label: "Years of experience", sub: "Operating since 2019" },
-      { num: "2000+", label: "Graduates",          sub: "Successfully completed" },
-      { num: "95%",  label: "Admission rate",       sub: "University prep program" },
-      { num: "4",    label: "Branches",             sub: "Branches within Baku" },
+      { num: "4",  label: "Branches",        sub: "Baku & Absheron" },
+      { num: "8",  label: "Study areas",     sub: "Wide program range" },
     ],
   },
 } as const;
