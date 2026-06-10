@@ -49,7 +49,7 @@ export default function AdminVacancies() {
             <label className="field-label">Vəzifə</label>
             <input className="field-input" value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} placeholder="Riyaziyyat müəllimi" required />
           </div>
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div>
               <label className="field-label">Filial</label>
               <select className="field-input" value={form.branch} onChange={(e) => setForm({ ...form, branch: e.target.value })}>

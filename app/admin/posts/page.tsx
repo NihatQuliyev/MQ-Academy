@@ -68,7 +68,7 @@ export default function AdminPosts() {
             <label className="field-label">Başlıq</label>
             <input className="field-input" value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} placeholder="20 İyun Riyaziyyat sınağı" required />
           </div>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="field-label">Kateqoriya</label>
               <select className="field-input" value={form.category} onChange={(e) => setForm({ ...form, category: e.target.value })}>

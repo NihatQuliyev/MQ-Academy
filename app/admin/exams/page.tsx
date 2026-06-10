@@ -74,7 +74,7 @@ export default function AdminExams() {
         <div className="px-7 py-5 border-b border-ink/[0.08] bg-paper text-lg font-semibold text-ink">
           {editId ? "İmtahanı redaktə et" : "Yeni imtahan tarixi əlavə et"}
         </div>
-        <form onSubmit={save} className="p-7 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <form onSubmit={save} className="p-4 md:p-7 grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="md:col-span-2">
             <label className="field-label">İmtahan adı</label>
             <input className="field-input" value={form.name}
