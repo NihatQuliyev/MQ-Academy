@@ -296,7 +296,7 @@ const t = {
       submit: "Apply now",
     },
     home: {
-      badge: "MQ Academy — Baku",
+      badge: "MQ Academy",
       hero1: "Build your",
       hero2: "future",
       hero3: "with us.",
