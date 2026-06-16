@@ -8,6 +8,12 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
+const MIME: Record<string, { type: string; inline: boolean }> = {
+  pdf:  { type: "application/pdf",                                                          inline: true  },
+  doc:  { type: "application/msword",                                                       inline: false },
+  docx: { type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",  inline: false },
+};
+
 export async function GET(req: NextRequest) {
   const deny = await requireAdmin();
   if (deny) return deny;
@@ -16,20 +22,43 @@ export async function GET(req: NextRequest) {
   if (!url) return NextResponse.json({ error: "URL tələb olunur" }, { status: 400 });
 
   try {
-    // public_id-ni URL-dən çıxar (extension daxil)
-    const match = url.match(/\/raw\/upload\/(?:v\d+\/)?(.+)$/);
-    if (!match) return NextResponse.json({ error: "URL formatı yanlışdır" }, { status: 400 });
+    const ext = url.split(".").pop()?.toLowerCase().split("?")[0] || "pdf";
+    const mime = MIME[ext] ?? { type: "application/octet-stream", inline: false };
+    const filename = `cv.${ext}`;
+    const disposition = mime.inline
+      ? `inline; filename="${filename}"`
+      : `attachment; filename="${filename}"`;
 
-    const publicId = match[1];
+    // image/upload URL-lər public — server tərəfindən birbaşa fetch edilir
+    if (url.includes("/image/upload/")) {
+      const res = await fetch(url);
+      if (res.ok) {
+        const buffer = await res.arrayBuffer();
+        return new NextResponse(buffer, {
+          headers: {
+            "Content-Type": mime.type,
+            "Content-Disposition": disposition,
+          },
+        });
+      }
+    }
 
-    // Format boş — raw fayllar üçün extension public_id-nin içindədir
-    const downloadUrl = cloudinary.utils.private_download_url(publicId, "", {
-      resource_type: "raw",
-      expires_at: Math.floor(Date.now() / 1000) + 3600,
-      attachment: false,
-    });
+    // raw/upload URL-lər üçün imzalı delivery URL generasiya et
+    if (url.includes("/raw/upload/")) {
+      const match = url.match(/\/raw\/upload\/(?:v\d+\/)?(.+)$/);
+      if (match) {
+        const publicId = match[1];
+        const signedUrl = cloudinary.url(publicId, {
+          resource_type: "raw",
+          sign_url: true,
+          secure: true,
+          type: "upload",
+        });
+        return NextResponse.redirect(signedUrl);
+      }
+    }
 
-    return NextResponse.redirect(downloadUrl);
+    return NextResponse.json({ error: "URL formatı yanlışdır" }, { status: 400 });
   } catch (err) {
     console.error("CV view error:", err);
     return NextResponse.json({ error: "Xəta baş verdi" }, { status: 500 });

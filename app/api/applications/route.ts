@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/lib/db";
 import { requireAdmin } from "@/lib/requireAdmin";
-import { uploadRaw, deleteRaw, extractPublicId } from "@/lib/cloudinary";
+import { uploadRaw, deleteCv } from "@/lib/cloudinary";
 
 // Admin only — list all applications
 export async function GET(req: NextRequest) {
@@ -70,10 +70,7 @@ export async function DELETE(req: NextRequest) {
     if (!id) return NextResponse.json({ error: "ID tələb olunur" }, { status: 400 });
 
     const app = await prisma.vacancyApplication.findUnique({ where: { id }, select: { cvPath: true } });
-    if (app?.cvPath) {
-      const pid = extractPublicId(app.cvPath);
-      if (pid) await deleteRaw(pid);
-    }
+    if (app?.cvPath) await deleteCv(app.cvPath);
 
     await prisma.vacancyApplication.delete({ where: { id } });
     return NextResponse.json({ success: true });

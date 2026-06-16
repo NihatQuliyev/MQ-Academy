@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/lib/db";
 import { requireAdmin } from "@/lib/requireAdmin";
-import { deleteRaw, extractPublicId } from "@/lib/cloudinary";
+import { deleteCv } from "@/lib/cloudinary";
 
 export async function GET(req: NextRequest) {
   const all = req.nextUrl.searchParams.get("all");
@@ -49,10 +49,7 @@ export async function DELETE(req: NextRequest) {
     });
 
     for (const app of applications) {
-      if (app.cvPath) {
-        const pid = extractPublicId(app.cvPath);
-        if (pid) await deleteRaw(pid);
-      }
+      if (app.cvPath) await deleteCv(app.cvPath);
     }
 
     await prisma.vacancy.delete({ where: { id } });
