@@ -14,7 +14,7 @@ const branches = [
     name: "Xalqlar",
     address: "Nizami r. Babək pr. 2390, Bakı",
     embedUrl: "https://maps.google.com/maps?q=40.3967163,49.9500691&output=embed&z=17",
-    mapsUrl: "https://www.google.com/maps/search/Nizami+r+Babək+pr+2390+Bakı+Azerbaijan",
+    mapsUrl: "https://www.google.com/maps/place/40%C2%B023'48.2%22N+49%C2%B057'00.3%22E/@40.3967163,49.9474942,17z/data=!3m1!4b1!4m4!3m3!8m2!3d40.3967163!4d49.9500691?hl=en&entry=ttu&g_ep=EgoyMDI2MDYxMy4wIKXMDSoASAFQAw%3D%3D",
   },
   {
     name: "Xırdalan",
