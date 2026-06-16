@@ -6,15 +6,15 @@ import t from "@/lib/translations";
 const branches = [
   {
     name: "İnşaatçılar",
-    address: "Mirzə Cabbar Məmmədzadə 193, Bakı",
-    embedUrl: "https://maps.google.com/maps?q=Mirzə+Cabbar+Məmmədzadə+193,Bakı,Azerbaijan&output=embed&z=17",
-    mapsUrl: "https://www.google.com/maps/search/Mirzə+Cabbar+Məmmədzadə+193+Bakı+Azerbaijan",
+    address: "Mirzə Cabbar Məmmədzadə 197, Bakı",
+    embedUrl: "https://maps.google.com/maps?q=Mirzə+Cabbar+Məmmədzadə+197,Bakı,Azerbaijan&output=embed&z=17",
+    mapsUrl: "https://www.google.com/maps/search/Mirzə+Cabbar+Məmmədzadə+197+Bakı+Azerbaijan",
   },
   {
     name: "Xalqlar",
-    address: "Xalqlar dostluğu, Bakı",
-    embedUrl: "https://maps.google.com/maps?q=Xalqlar+dostluğu,Bakı,Azerbaijan&output=embed&z=16",
-    mapsUrl: "https://www.google.com/maps/search/Xalqlar+dostluğu+Bakı",
+    address: "Nizami r. Babək pr. 2390, Bakı",
+    embedUrl: "https://maps.google.com/maps?q=40.3967163,49.9500691&output=embed&z=17",
+    mapsUrl: "https://www.google.com/maps/place/40%C2%B023'48.2%22N+49%C2%B057'00.3%22E/@40.3967163,49.9474942,17z/data=!3m1!4b1!4m4!3m3!8m2!3d40.3967163!4d49.9500691?hl=en&entry=ttu&g_ep=EgoyMDI2MDYxMy4wIKXMDSoASAFQAw%3D%3D",
   },
   {
     name: "Xırdalan",
@@ -47,7 +47,7 @@ export default function ContactPage() {
     { icon: <PhoneIcon />,    label: isEn ? "Phone" : "Telefon",          links: [{ value: "012 434 85 76", href: "tel:0124348576" }, { value: "010 386 15 24", href: "tel:0103861524" }, { value: "055 871 63 68", href: "tel:0558716368" }] },
     { icon: <WhatsAppIcon />, label: "WhatsApp",                           links: [{ value: "010 386 15 24", href: "https://wa.me/994103861524" }, { value: "055 871 63 68", href: "https://wa.me/994558716368" }] },
     { icon: <EmailIcon />,    label: "Email",                              value: "info@mqakademiya.az", href: "mailto:info@mqakademiya.az" },
-    { icon: <PinIcon />,      label: isEn ? "Central address" : "Mərkəzi ünvan", value: "Mirzə Cabbar Məmmədzadə 193, Bakı" },
+    { icon: <PinIcon />,      label: isEn ? "Central address" : "Mərkəzi ünvan", value: "Mirzə Cabbar Məmmədzadə 197, Bakı" },
   ];
 
   const currentEmbed = activeIdx !== null ? branches[activeIdx].embedUrl : DEFAULT_EMBED;
@@ -101,7 +101,7 @@ export default function ContactPage() {
                 {tr.contactTitle} <span className="text-orange-2">{tr.contactTitleSpan}</span>
               </h2>
               <p className="text-sm text-white/55 mb-2">{tr.contactSub}</p>
-              <p className="text-sm text-white/40">Mirzə Cabbar Məmmədzadə 193, Bakı</p>
+              <p className="text-sm text-white/40">Mirzə Cabbar Məmmədzadə 197, Bakı</p>
               <div className="flex-1 flex flex-col justify-center">
                 {contacts.map((c) => (
                   <div key={c.label} className="flex items-start gap-3 py-4 border-t border-white/[0.1]">
