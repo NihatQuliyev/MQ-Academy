@@ -1,0 +1,133 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model ExamDate {
+  id            Int            @id @default(autoincrement())
+  name          String
+  category      String
+  type          String         @default("blok")
+  date          String
+  time          String
+  duration      String
+  branch        String
+  grade         String
+  topics        String         @db.Text @default("[]")
+  note          String         @default("")
+  active        Boolean        @default(true)
+  createdAt     DateTime       @default(now())
+  topicSections TopicSection[]
+}
+
+model Result {
+  id             Int      @id @default(autoincrement())
+  studentCode    String
+  studentName    String
+  branch         String
+  examName       String
+  examDate       String
+  examType       String   @db.Text
+  score          Int
+  correct        Int
+  wrong          Int
+  empty          Int
+  total          Int
+  answers        String   @db.Text
+  correctAnswers String   @db.Text
+  questions      String   @db.Text
+  createdAt      DateTime @default(now())
+
+  @@index([studentCode])
+}
+
+model Post {
+  id        Int      @id @default(autoincrement())
+  title     String
+  content   String   @db.Text
+  category  String
+  date      String
+  active    Boolean  @default(true)
+  image     String?
+  createdAt DateTime @default(now())
+}
+
+model Vacancy {
+  id           Int                  @id @default(autoincrement())
+  title        String
+  branch       String
+  type         String
+  requirements String               @db.Text
+  publishDate  String
+  active       Boolean              @default(true)
+  createdAt    DateTime             @default(now())
+  applications VacancyApplication[]
+}
+
+model VacancyApplication {
+  id         Int      @id @default(autoincrement())
+  vacancyId  Int
+  vacancy    Vacancy  @relation(fields: [vacancyId], references: [id])
+  name       String
+  email      String
+  phone      String
+  cvPath     String   @default("")
+  createdAt  DateTime @default(now())
+
+  @@index([vacancyId])
+}
+
+model AdminUser {
+  id           Int      @id @default(autoincrement())
+  username     String   @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model ContactMessage {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String
+  phone     String   @default("")
+  message   String   @db.Text
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model TopicSection {
+  id        Int            @id @default(autoincrement())
+  examId    Int?
+  exam      ExamDate?      @relation(fields: [examId], references: [id], onDelete: SetNull)
+  bolme     String         @default("")
+  sinif     String         @default("")
+  qrup      String         @default("")
+  dil       String         @default("az")
+  subjects  TopicSubject[]
+  createdAt DateTime       @default(now())
+  updatedAt DateTime       @updatedAt
+
+  @@index([examId])
+}
+
+model TopicSubject {
+  id        Int          @id @default(autoincrement())
+  name      String
+  order     Int          @default(0)
+  sectionId Int
+  section   TopicSection @relation(fields: [sectionId], references: [id], onDelete: Cascade)
+  items     TopicItem[]
+}
+
+model TopicItem {
+  id        Int          @id @default(autoincrement())
+  content   String       @db.Text
+  order     Int          @default(0)
+  subjectId Int
+  subject   TopicSubject @relation(fields: [subjectId], references: [id], onDelete: Cascade)
+}
