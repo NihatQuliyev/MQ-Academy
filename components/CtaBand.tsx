@@ -90,7 +90,7 @@ export default function CtaBand() {
               </div>
             </div>
 
-            <a href="mailto:info@mqakademiya.az"
+            <a href="mailto:mqakademiya@gmail.com"
               className="flex items-center gap-4 bg-white/5 border border-white/10 rounded-xl px-5 py-4 hover:bg-white/10 hover:border-white/20 transition-all no-underline group flex-1">
               <div className="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center text-orange flex-shrink-0 group-hover:scale-105 transition-transform">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -99,7 +99,7 @@ export default function CtaBand() {
               </div>
               <div>
                 <p className="text-[10px] text-white/40 font-semibold uppercase tracking-widest mb-0.5">E-mail</p>
-                <p className="text-white font-semibold">info@mqakademiya.az</p>
+                <p className="text-white font-semibold">mqakademiya@gmail.com</p>
               </div>
             </a>
           </div>

@@ -46,7 +46,7 @@ export default function ContactPage() {
   const contacts = [
     { icon: <PhoneIcon />,    label: isEn ? "Phone" : "Telefon",          links: [{ value: "012 434 85 76", href: "tel:0124348576" }, { value: "010 386 15 24", href: "tel:0103861524" }, { value: "055 871 63 68", href: "tel:0558716368" }] },
     { icon: <WhatsAppIcon />, label: "WhatsApp",                           links: [{ value: "010 386 15 24", href: "https://wa.me/994103861524" }, { value: "055 871 63 68", href: "https://wa.me/994558716368" }] },
-    { icon: <EmailIcon />,    label: "Email",                              value: "info@mqakademiya.az", href: "mailto:info@mqakademiya.az" },
+    { icon: <EmailIcon />,    label: "Email",                              value: "mqakademiya@gmail.com", href: "mailto:mqakademiya@gmail.com" },
     { icon: <PinIcon />,      label: isEn ? "Central address" : "Mərkəzi ünvan", value: "Mirzə Cabbar Məmmədzadə 197, Bakı" },
   ];
 

@@ -90,7 +90,7 @@ export default function Footer() {
                 { href: "tel:+994124348576",          label: "012 434 85 76" },
                 { href: "https://wa.me/994103861524", label: "010 386 15 24" },
                 { href: "https://wa.me/994558716368", label: "055 871 63 68" },
-                { href: "mailto:info@mqakademiya.az", label: "info@mqakademiya.az" },
+                { href: "mailto:mqakademiya@gmail.com", label: "mqakademiya@gmail.com" },
               ].map((l) => (
                 <li key={l.href}>
                   <a href={l.href} className="text-sm font-semibold no-underline transition-colors"
