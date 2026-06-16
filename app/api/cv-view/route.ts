@@ -29,19 +29,9 @@ export async function GET(req: NextRequest) {
       ? `inline; filename="${filename}"`
       : `attachment; filename="${filename}"`;
 
+    // image/upload URL-lər public — birbaşa redirect et
     if (url.includes("/image/upload/")) {
-      const res = await fetch(url);
-      if (!res.ok) {
-        console.error("Cloudinary fetch failed:", res.status, url);
-        return NextResponse.json({ error: `Cloudinary fetch xətası: ${res.status}` }, { status: 502 });
-      }
-      const buffer = await res.arrayBuffer();
-      return new NextResponse(buffer, {
-        headers: {
-          "Content-Type": mime.type,
-          "Content-Disposition": disposition,
-        },
-      });
+      return NextResponse.redirect(url);
     }
 
     if (url.includes("/raw/upload/")) {
