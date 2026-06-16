@@ -29,21 +29,21 @@ export async function GET(req: NextRequest) {
       ? `inline; filename="${filename}"`
       : `attachment; filename="${filename}"`;
 
-    // image/upload URL-lər public — server tərəfindən birbaşa fetch edilir
     if (url.includes("/image/upload/")) {
       const res = await fetch(url);
-      if (res.ok) {
-        const buffer = await res.arrayBuffer();
-        return new NextResponse(buffer, {
-          headers: {
-            "Content-Type": mime.type,
-            "Content-Disposition": disposition,
-          },
-        });
+      if (!res.ok) {
+        console.error("Cloudinary fetch failed:", res.status, url);
+        return NextResponse.json({ error: `Cloudinary fetch xətası: ${res.status}` }, { status: 502 });
       }
+      const buffer = await res.arrayBuffer();
+      return new NextResponse(buffer, {
+        headers: {
+          "Content-Type": mime.type,
+          "Content-Disposition": disposition,
+        },
+      });
     }
 
-    // raw/upload URL-lər üçün imzalı delivery URL generasiya et
     if (url.includes("/raw/upload/")) {
       const match = url.match(/\/raw\/upload\/(?:v\d+\/)?(.+)$/);
       if (match) {
@@ -58,7 +58,8 @@ export async function GET(req: NextRequest) {
       }
     }
 
-    return NextResponse.json({ error: "URL formatı yanlışdır" }, { status: 400 });
+    console.error("URL pattern tapılmadı:", url);
+    return NextResponse.json({ error: "URL formatı yanlışdır", url }, { status: 400 });
   } catch (err) {
     console.error("CV view error:", err);
     return NextResponse.json({ error: "Xəta baş verdi" }, { status: 500 });
