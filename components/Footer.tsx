@@ -7,7 +7,7 @@ import t from "@/lib/translations";
 const socials = [
   { href: "https://wa.me/994103861524",              Icon: IconWhatsApp,  label: "WhatsApp",  color: "#25D366" },
   { href: "https://www.instagram.com/mq_academy.az?igsh=MTE5c2p2Y205c2thZA==", Icon: IconInstagram, label: "Instagram", color: "#E1306C" },
-  { href: "https://tiktok.com/@mqakademiya",          Icon: IconTikTok,    label: "TikTok",    color: "#69C9D0" },
+  { href: "https://www.tiktok.com/@mq_academy.az?_r=1&_t=ZS-97GWweFRSCa", Icon: IconTikTok,    label: "TikTok",    color: "#69C9D0" },
   { href: "https://www.linkedin.com/in/mq-academy/", Icon: IconLinkedIn,  label: "LinkedIn",  color: "#0077B5" },
 ];
 
