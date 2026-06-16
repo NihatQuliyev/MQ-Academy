@@ -37,13 +37,27 @@ export async function GET(req: NextRequest) {
     if (url.includes("/raw/upload/")) {
       const match = url.match(/\/raw\/upload\/(?:v\d+\/)?(.+)$/);
       if (!match) return NextResponse.json({ error: "URL formatı yanlışdır" }, { status: 400 });
-      const signedUrl = cloudinary.url(match[1], {
+      const publicId = match[1];
+      const ext = publicId.split(".").pop()?.toLowerCase() || "docx";
+      const mimeTypes: Record<string, string> = {
+        doc:  "application/msword",
+        docx: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      };
+      const signedUrl = cloudinary.url(publicId, {
         resource_type: "raw",
         sign_url: true,
         secure: true,
         type: "upload",
       });
-      return NextResponse.redirect(signedUrl);
+      const res = await fetch(signedUrl);
+      if (!res.ok) return NextResponse.json({ error: `Fetch xətası: ${res.status}` }, { status: 502 });
+      const buffer = await res.arrayBuffer();
+      return new NextResponse(buffer, {
+        headers: {
+          "Content-Type": mimeTypes[ext] ?? "application/octet-stream",
+          "Content-Disposition": `attachment; filename="cv.${ext}"`,
+        },
+      });
     }
 
     return NextResponse.json({ error: "URL formatı yanlışdır" }, { status: 400 });
