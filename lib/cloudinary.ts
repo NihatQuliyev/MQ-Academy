@@ -29,8 +29,11 @@ export async function uploadRaw(
 ): Promise<{ url: string; publicId: string }> {
   const bytes = await file.arrayBuffer();
   const buffer = Buffer.from(bytes);
-  // Extension qoymuriq — "auto" mode-da Cloudinary özü əlavə edir
-  const publicId = `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+  const ext = file.name.split(".").pop()?.toLowerCase() || "pdf";
+  // PDF üçün Cloudinary /image/upload/-də extension özü əlavə edir, doc/docx üçün əlavə etmir
+  const publicId = ext === "pdf"
+    ? `${Date.now()}-${Math.random().toString(36).slice(2)}`
+    : `${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`;
 
   return new Promise((resolve, reject) => {
     cloudinary.uploader
