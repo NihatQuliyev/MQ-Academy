@@ -15,20 +15,23 @@ export async function GET(req: NextRequest) {
   const url = req.nextUrl.searchParams.get("url");
   if (!url) return NextResponse.json({ error: "URL tələb olunur" }, { status: 400 });
 
-  // URL-dən public_id çıxar (extension daxil — raw fayllar üçün lazımdır)
-  const match = url.match(/\/raw\/upload\/(?:v\d+\/)?(.+)$/);
-  if (!match) return NextResponse.redirect(url);
+  try {
+    const match = url.match(/\/raw\/upload\/(?:v\d+\/)?(.+)$/);
+    if (!match) return NextResponse.json({ error: "URL formatı yanlışdır" }, { status: 400 });
 
-  const publicId = match[1];
+    const publicId = match[1];
+    const ext = publicId.split(".").pop()?.toLowerCase() || "pdf";
 
-  // İmzalı URL yarat — 1 saat keçərli
-  const signedUrl = cloudinary.url(publicId, {
-    resource_type: "raw",
-    sign_url: true,
-    secure: true,
-    type: "upload",
-    expires_at: Math.floor(Date.now() / 1000) + 3600,
-  });
+    // Cloudinary private_download_url — admin API ilə authenticated link
+    const downloadUrl = cloudinary.utils.private_download_url(publicId, ext, {
+      resource_type: "raw",
+      expires_at: Math.floor(Date.now() / 1000) + 3600,
+      attachment: false,
+    });
 
-  return NextResponse.redirect(signedUrl);
+    return NextResponse.redirect(downloadUrl);
+  } catch (err) {
+    console.error("CV view error:", err);
+    return NextResponse.json({ error: "Xəta baş verdi" }, { status: 500 });
+  }
 }
