@@ -8,12 +8,6 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-const MIME: Record<string, { type: string; inline: boolean }> = {
-  pdf:  { type: "application/pdf",                                                          inline: true  },
-  doc:  { type: "application/msword",                                                       inline: false },
-  docx: { type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",  inline: false },
-};
-
 export async function GET(req: NextRequest) {
   const deny = await requireAdmin();
   if (deny) return deny;
@@ -22,34 +16,37 @@ export async function GET(req: NextRequest) {
   if (!url) return NextResponse.json({ error: "URL tələb olunur" }, { status: 400 });
 
   try {
-    const ext = url.split(".").pop()?.toLowerCase().split("?")[0] || "pdf";
-    const mime = MIME[ext] ?? { type: "application/octet-stream", inline: false };
-    const filename = `cv.${ext}`;
-    const disposition = mime.inline
-      ? `inline; filename="${filename}"`
-      : `attachment; filename="${filename}"`;
-
-    // image/upload URL-lər public — birbaşa redirect et
     if (url.includes("/image/upload/")) {
-      return NextResponse.redirect(url);
+      // public_id-ni çıxar (extensionsiz — image type üçün Cloudinary extension saxlamır)
+      const match = url.match(/\/image\/upload\/(?:v\d+\/)?(.+)$/);
+      if (!match) return NextResponse.json({ error: "URL formatı yanlışdır" }, { status: 400 });
+      const withExt = match[1];
+      const publicId = withExt.replace(/\.[^./]+$/, ""); // extensionu sil
+      const ext = withExt.split(".").pop()?.toLowerCase() || "pdf";
+
+      const signedUrl = cloudinary.url(publicId, {
+        resource_type: "image",
+        sign_url: true,
+        secure: true,
+        type: "upload",
+        format: ext,
+      });
+      return NextResponse.redirect(signedUrl);
     }
 
     if (url.includes("/raw/upload/")) {
       const match = url.match(/\/raw\/upload\/(?:v\d+\/)?(.+)$/);
-      if (match) {
-        const publicId = match[1];
-        const signedUrl = cloudinary.url(publicId, {
-          resource_type: "raw",
-          sign_url: true,
-          secure: true,
-          type: "upload",
-        });
-        return NextResponse.redirect(signedUrl);
-      }
+      if (!match) return NextResponse.json({ error: "URL formatı yanlışdır" }, { status: 400 });
+      const signedUrl = cloudinary.url(match[1], {
+        resource_type: "raw",
+        sign_url: true,
+        secure: true,
+        type: "upload",
+      });
+      return NextResponse.redirect(signedUrl);
     }
 
-    console.error("URL pattern tapılmadı:", url);
-    return NextResponse.json({ error: "URL formatı yanlışdır", url }, { status: 400 });
+    return NextResponse.json({ error: "URL formatı yanlışdır" }, { status: 400 });
   } catch (err) {
     console.error("CV view error:", err);
     return NextResponse.json({ error: "Xəta baş verdi" }, { status: 500 });
