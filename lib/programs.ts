@@ -80,12 +80,12 @@ export const programs: Program[] = [
       { title: "Parent communication", desc: "Monthly reports and ongoing communication with parents." },
     ],
     targets: [
-      "Rəqəmləri, hərfləri asanlıqla tanıyır",
+      "Oxuma, yazma və hesab bacarıqlarına yiyələnir",
       "Məntiqi tapşırıqları həll edir",
       "Özünü cəmiyyətdə rahat hiss edir",
     ],
     targets_en: [
-      "Easily recognises numbers and letters",
+      "Develops reading, writing and arithmetic skills",
       "Solves logical tasks",
       "Feels comfortable in social settings",
     ],
