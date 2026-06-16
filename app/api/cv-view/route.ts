@@ -16,14 +16,14 @@ export async function GET(req: NextRequest) {
   if (!url) return NextResponse.json({ error: "URL tələb olunur" }, { status: 400 });
 
   try {
+    // public_id-ni URL-dən çıxar (extension daxil)
     const match = url.match(/\/raw\/upload\/(?:v\d+\/)?(.+)$/);
     if (!match) return NextResponse.json({ error: "URL formatı yanlışdır" }, { status: 400 });
 
     const publicId = match[1];
-    const ext = publicId.split(".").pop()?.toLowerCase() || "pdf";
 
-    // Cloudinary private_download_url — admin API ilə authenticated link
-    const downloadUrl = cloudinary.utils.private_download_url(publicId, ext, {
+    // Format boş — raw fayllar üçün extension public_id-nin içindədir
+    const downloadUrl = cloudinary.utils.private_download_url(publicId, "", {
       resource_type: "raw",
       expires_at: Math.floor(Date.now() / 1000) + 3600,
       attachment: false,
