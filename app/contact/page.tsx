@@ -3,28 +3,32 @@ import { useState } from "react";
 import { useLang } from "@/context/LangContext";
 import t from "@/lib/translations";
 
-const branches = [
+const branchData = [
   {
-    name: "İnşaatçılar",
+    name: "İnşaatçılar",       name_en: "Inshaatchilar",
     address: "Mirzə Cabbar Məmmədzadə 197, Bakı",
+    address_en: "Mirza Jabbar Mammadzada 197, Baku",
     embedUrl: "https://maps.google.com/maps?q=Mirzə+Cabbar+Məmmədzadə+197,Bakı,Azerbaijan&output=embed&z=17",
     mapsUrl: "https://www.google.com/maps/search/Mirzə+Cabbar+Məmmədzadə+197+Bakı+Azerbaijan",
   },
   {
-    name: "Xalqlar",
+    name: "Xalqlar",            name_en: "Khalqlar",
     address: "Nizami rayonu, Babək prospekti 2390, Bakı",
+    address_en: "Nizami district, Babak avenue 2390, Baku",
     embedUrl: "https://maps.google.com/maps?q=40.3967163,49.9500691&output=embed&z=17",
     mapsUrl: "https://www.google.com/maps/place/40%C2%B023'48.2%22N+49%C2%B057'00.3%22E/@40.3967163,49.9474942,17z/data=!3m1!4b1!4m4!3m3!8m2!3d40.3967163!4d49.9500691?hl=en&entry=ttu&g_ep=EgoyMDI2MDYxMy4wIKXMDSoASAFQAw%3D%3D",
   },
   {
-    name: "Xırdalan",
+    name: "Xırdalan",           name_en: "Khirdalan",
     address: "Xırdalan şəhəri, Abşeron",
+    address_en: "Khirdalan city, Absheron",
     embedUrl: "https://maps.google.com/maps?q=Xırdalan,Abşeron,Azerbaijan&output=embed&z=15",
     mapsUrl: "https://www.google.com/maps/search/Xırdalan+Abşeron+Azerbaijan",
   },
   {
-    name: "Binəqədi",
+    name: "Binəqədi",           name_en: "Binagadi",
     address: "Binəqədi qəsəbəsi, Bakı",
+    address_en: "Binagadi settlement, Baku",
     embedUrl: "https://maps.google.com/maps?q=Binəqədi,Bakı,Azerbaijan&output=embed&z=15",
     mapsUrl: "https://www.google.com/maps/search/Binəqədi+Bakı+Azerbaijan",
   },
@@ -43,11 +47,19 @@ export default function ContactPage() {
   const tr = t[lang].contact;
   const isEn = lang === "en";
 
+  const branches = branchData.map((b) => ({
+    ...b,
+    name: isEn ? b.name_en : b.name,
+    address: isEn ? b.address_en : b.address,
+  }));
+
+  const centralAddress = isEn ? "Mirza Jabbar Mammadzada 197, Baku" : "Mirzə Cabbar Məmmədzadə 197, Bakı";
+
   const contacts = [
     { icon: <PhoneIcon />,    label: isEn ? "Phone" : "Telefon",          links: [{ value: "012 434 85 76", href: "tel:0124348576" }, { value: "010 386 15 24", href: "tel:0103861524" }, { value: "055 871 63 68", href: "tel:0558716368" }] },
     { icon: <WhatsAppIcon />, label: "WhatsApp",                           links: [{ value: "010 386 15 24", href: "https://wa.me/994103861524" }, { value: "055 871 63 68", href: "https://wa.me/994558716368" }] },
     { icon: <EmailIcon />,    label: "Email",                              value: "mqakademiya@gmail.com", href: "mailto:mqakademiya@gmail.com" },
-    { icon: <PinIcon />,      label: isEn ? "Central address" : "Mərkəzi ünvan", value: "Mirzə Cabbar Məmmədzadə 197, Bakı" },
+    { icon: <PinIcon />,      label: isEn ? "Central address" : "Mərkəzi ünvan", value: centralAddress },
   ];
 
   const currentEmbed = activeIdx !== null ? branches[activeIdx].embedUrl : DEFAULT_EMBED;
@@ -101,7 +113,7 @@ export default function ContactPage() {
                 {tr.contactTitle} <span className="text-orange-2">{tr.contactTitleSpan}</span>
               </h2>
               <p className="text-sm text-white/55 mb-2">{tr.contactSub}</p>
-              <p className="text-sm text-white/40">Mirzə Cabbar Məmmədzadə 197, Bakı</p>
+              <p className="text-sm text-white/40">{centralAddress}</p>
               <div className="flex-1 flex flex-col justify-center">
                 {contacts.map((c) => (
                   <div key={c.label} className="flex items-start gap-3 py-4 border-t border-white/[0.1]">
