@@ -27,7 +27,7 @@ const socials = [
   { href: "https://wa.me/994103861524",              Icon: IconWhatsApp,  label: "WhatsApp",  color: "#25D366" },
   { href: "https://www.instagram.com/mq_academy.az?igsh=MTE5c2p2Y205c2thZA==", Icon: IconInstagram, label: "Instagram", color: "#E1306C" },
   { href: "https://tiktok.com/@mqakademiya",          Icon: IconTikTok,    label: "TikTok",    color: "#69C9D0" },
-  { href: "https://linkedin.com/company/mqakademiya", Icon: IconLinkedIn,  label: "LinkedIn",  color: "#0077B5" },
+  { href: "https://www.linkedin.com/in/mq-academy/", Icon: IconLinkedIn,  label: "LinkedIn",  color: "#0077B5" },
 ];
 
 const AZ_FLAG = () => (
