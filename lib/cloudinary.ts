@@ -29,8 +29,8 @@ export async function uploadRaw(
 ): Promise<{ url: string; publicId: string }> {
   const bytes = await file.arrayBuffer();
   const buffer = Buffer.from(bytes);
-  const ext = file.name.split(".").pop()?.toLowerCase() || "pdf";
-  const publicId = `${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`;
+  // Extension qoymuriq — "auto" mode-da Cloudinary özü əlavə edir
+  const publicId = `${Date.now()}-${Math.random().toString(36).slice(2)}`;
 
   return new Promise((resolve, reject) => {
     cloudinary.uploader
@@ -65,13 +65,20 @@ export async function deleteCv(url: string): Promise<void> {
     const resourceType = isImage ? "image" : "raw";
     const match = url.match(/\/upload\/(?:v\d+\/)?(.+)$/);
     if (!match) return;
-    await cloudinary.uploader.destroy(match[1], { resource_type: resourceType });
+    // image type-da Cloudinary publicId extensionsiz saxlayır; raw-da extension daxildir
+    let publicId = match[1];
+    if (isImage) publicId = publicId.replace(/\.[^./]+$/, "");
+    await cloudinary.uploader.destroy(publicId, { resource_type: resourceType });
   } catch {/* ignore */}
 }
 
-/** Cloudinary URL-dən public_id çıxarır (extension daxil) */
+/** Cloudinary URL-dən public_id çıxarır */
 export function extractPublicId(url: string): string | null {
   if (!url || !url.includes("cloudinary.com")) return null;
   const match = url.match(/\/upload\/(?:v\d+\/)?(.+)$/);
-  return match ? match[1] : null;
+  if (!match) return null;
+  const publicId = match[1];
+  // image type-da publicId extensionsiz, raw-da extension daxildir
+  if (url.includes("/image/upload/")) return publicId.replace(/\.[^./]+$/, "");
+  return publicId;
 }
