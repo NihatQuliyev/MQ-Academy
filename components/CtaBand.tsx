@@ -72,8 +72,8 @@ export default function CtaBand() {
               </div>
               <div>
                 <p className="text-[10px] text-white/40 font-semibold uppercase tracking-widest mb-1">Telefon</p>
-                <a href="tel:+994124348576" className="block text-white font-semibold no-underline hover:text-orange transition-colors">012 434 85 76</a>
-                <a href="tel:+994103861524" className="block text-white font-semibold no-underline hover:text-orange transition-colors mt-0.5">010 386 15 24</a>
+                <a href="tel:+994103861524" className="block text-white font-semibold no-underline hover:text-orange transition-colors">010 386 15 24</a>
+                <a href="tel:+994124348576" className="block text-white font-semibold no-underline hover:text-orange transition-colors mt-0.5">012 434 85 76</a>
               </div>
             </div>
 
