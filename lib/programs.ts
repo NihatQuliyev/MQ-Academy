@@ -436,14 +436,14 @@ export const programs: Program[] = [
       { name: "Microsoft Excel", icon: "📊" },
       { name: "Microsoft PowerPoint", icon: "📽️" },
       { name: "Microsoft Outlook", icon: "📧" },
-      { name: "İlkin məlumatlar", icon: "💻" },
+      { name: "İlkin biliklər", icon: "💻" },
     ],
     subjects_en: [
       { name: "Microsoft Word", icon: "📄" },
       { name: "Microsoft Excel", icon: "📊" },
       { name: "Microsoft PowerPoint", icon: "📽️" },
       { name: "Microsoft Outlook", icon: "📧" },
-      { name: "Basic knowledge", icon: "💻" },
+      { name: "Basic skills", icon: "💻" },
     ],
     features: [
       { title: "Sıfırdan başlayır", desc: "Heç bir ön bilik tələb olunmur, tamamilə əsasdan öyrənilir." },
