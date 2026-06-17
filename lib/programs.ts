@@ -479,8 +479,8 @@ export const programs: Program[] = [
     age_en: "Ages 6–16",
     duration: "4–8 həftə (iyun–avqust)",
     schedule: "Həftə içi · Hər gün · 4 saat",
-    badges: ["Yay tətili", "Əyləncə + Bilik"],
-    badges_en: ["Summer holiday", "Fun + Knowledge"],
+    badges: ["Yay tətili", "Əyləncə + Bilik", "Fənlər"],
+    badges_en: ["Summer holiday", "Fun + Knowledge", "Subjects"],
     about: [
       "MQ Akademiyasının yay məktəbi şagirdlərə tətili boş keçirməmək üçün ən yaxşı fürsəti verir. Bilik, əylənc və yeni dostlar — hamısı bir yerdə.",
       "Hər yaş qrupu üçün fərqli proqramlar hazırlanmışdır. Sabah dərsləri akademik mövzuları, günorta fəaliyyətlər isə kreativ, idman və komanda oyunlarını əhatə edir.",
@@ -490,14 +490,10 @@ export const programs: Program[] = [
       "Different programs have been prepared for each age group. Morning lessons cover academic topics, while afternoon activities include creative, sports and team games.",
     ],
     subjects: [
-      { name: "Riyaziyyat", icon: "📐" },
-      { name: "İngilis dili", icon: "🌐" },
       { name: "Yaradıcı yazı", icon: "✍️" },
       { name: "Məntiqi oyunlar", icon: "🧩" },
     ],
     subjects_en: [
-      { name: "Mathematics", icon: "📐" },
-      { name: "English Language", icon: "🌐" },
       { name: "Creative writing", icon: "✍️" },
       { name: "Logic games", icon: "🧩" },
     ],
