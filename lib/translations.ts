@@ -77,8 +77,8 @@ const t = {
       programsSub: "Abituriyentdən magistraturaya — hər səviyyə üçün proqramımız var.",
       programsMore: "Hamısına bax →",
       whyLabel: "Niyə MQ?",
-      whyTitle: "MQ-nı",
-      whyTitle2: "seçin.",
+      whyTitle: "Niyə MQ",
+      whyTitle2: "Akademiyası?",
       whySub: "Keyfiyyət, nəticə və güvən əsasında qurulan akademik mühit.",
       whyItems: [
         { title: "Peşəkar müəllimlər",    desc: "Sahəsinin ekspertləri ilə birbaşa işləyin." },
@@ -310,8 +310,8 @@ const t = {
       programsSub: "From university preparation to master's degree — we have a program for every level.",
       programsMore: "View all →",
       whyLabel: "Why MQ?",
-      whyTitle: "Choose",
-      whyTitle2: "MQ.",
+      whyTitle: "Why MQ",
+      whyTitle2: "Academy?",
       whySub: "An academic environment built on quality, results and trust.",
       whyItems: [
         { title: "Expert teachers",      desc: "Work directly with experts in their field." },
