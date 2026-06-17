@@ -76,7 +76,7 @@ const t = {
       programsTitle: "Bütün proqramlar",
       programsSub: "Abituriyentdən magistraturaya — hər səviyyə üçün proqramımız var.",
       programsMore: "Hamısına bax →",
-      whyLabel: "Niyə MQ?",
+      whyLabel: "Niyə MQ Akademiyası?",
       whyTitle: "Niyə MQ",
       whyTitle2: "Akademiyası?",
       whySub: "Keyfiyyət, nəticə və güvən əsasında qurulan akademik mühit.",
