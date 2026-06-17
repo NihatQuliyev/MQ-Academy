@@ -171,6 +171,7 @@ export default function HomeContent({ posts }: { posts: Post[] }) {
       {/* ─── WHY MQ ───────────────────────────────────────────── */}
       <section className="section bg-cream-2">
         <div className="section-label">{tr.home.whyLabel}</div>
+        <h2 className="section-title mb-3">{tr.home.whyTitle} <span className="text-orange">{tr.home.whyTitle2}</span></h2>
         <p className="section-sub mb-10">{tr.home.whySub}</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {tr.home.whyItems.map((w, i) => {
