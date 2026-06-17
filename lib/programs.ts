@@ -335,13 +335,13 @@ export const programs: Program[] = [
       { title: "İmtahan analizi", desc: "Əvvəlki illərin magistr imtahan sualları ətraflı işlənir." },
       { title: "Fərdi yanaşma", desc: "Hər tələbənin zəif tərəfləri müəyyənləşdirilir və fərdi plan qurulur." },
       { title: "Sınaq imtahanları", desc: "Real imtahan şəraitini simulyasiya edən məşq imtahanları." },
-      { title: "Müsahibə hazırlığı", desc: "Universitetin müsahibə mərhələsinə xüsusi hazırlıq." },
+      { title: "Nəticəyə zəmanət", desc: "Hər tələbənin imtahan balı müntəzəm izlənilir və hədəfə çatmaq üçün plan tənzimlənir." },
     ],
     features_en: [
       { title: "Exam analysis", desc: "Previous years' master's exam questions are thoroughly worked through." },
       { title: "Individual approach", desc: "Each student's weak areas are identified and an individual plan is built." },
       { title: "Practice exams", desc: "Practice exams simulating real exam conditions." },
-      { title: "Interview preparation", desc: "Special preparation for the university interview stage." },
+      { title: "Result guarantee", desc: "Each student's exam score is regularly tracked and the plan is adjusted to reach the target." },
     ],
     targets: [
       "Magistratura imtahanında yüksək bal alır",
