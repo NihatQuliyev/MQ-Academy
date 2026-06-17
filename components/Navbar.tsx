@@ -49,6 +49,14 @@ const EN_FLAG = () => (
   </svg>
 );
 
+const RU_FLAG = () => (
+  <svg viewBox="0 0 30 20" className="w-5 h-3.5 rounded-sm overflow-hidden flex-shrink-0">
+    <rect width="30" height="6.67" fill="white"/>
+    <rect y="6.67" width="30" height="6.67" fill="#0039A6"/>
+    <rect y="13.33" width="30" height="6.67" fill="#D52B1E"/>
+  </svg>
+);
+
 export default function Navbar() {
   const pathname = usePathname();
   const { lang, setLang } = useLang();
@@ -83,7 +91,7 @@ export default function Navbar() {
         <Link href="/" className="flex items-center gap-2.5 no-underline flex-shrink-0">
           <img src="/logo.svg" alt="MQ Akademiyası" className="w-8 h-8 rounded-full bg-white object-contain p-0.5" />
           <span className="font-extrabold text-white text-[17px] tracking-tight">
-            MQ <span className="font-semibold opacity-90">{lang === "en" ? "Academy" : "Akademiyası"}</span>
+            MQ <span className="font-semibold opacity-90">{lang === "en" ? "Academy" : lang === "ru" ? "Академия" : "Akademiyası"}</span>
           </span>
         </Link>
 
@@ -212,8 +220,8 @@ export default function Navbar() {
           {/* Dil switcher */}
           <div className="relative" onMouseEnter={openLang} onMouseLeave={closeLang}>
             <button className="h-9 px-3 rounded-xl bg-white/10 border border-white/20 text-white flex items-center gap-2 text-sm font-bold hover:bg-white/20 transition-colors">
-              {lang === "az" ? <AZ_FLAG /> : <EN_FLAG />}
-              {lang === "az" ? "AZ" : "EN"}
+              {lang === "az" ? <AZ_FLAG /> : lang === "ru" ? <RU_FLAG /> : <EN_FLAG />}
+              {lang === "az" ? "AZ" : lang === "ru" ? "RU" : "EN"}
               <svg className={`w-3 h-3 transition-transform ${langDrop ? "rotate-180" : ""}`}
                 fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <polyline points="6 9 12 15 18 9" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" />
@@ -224,10 +232,10 @@ export default function Navbar() {
                 <div className="absolute top-full left-0 w-full h-3" onMouseEnter={openLang} onMouseLeave={closeLang} />
                 <div className="absolute top-[calc(100%+4px)] right-0 w-40 bg-white rounded-2xl shadow-lg overflow-hidden z-50 border border-black/[0.06]"
                   onMouseEnter={openLang} onMouseLeave={closeLang}>
-                  {([["az", "Azərbaycan"], ["en", "English"]] as [string, string][]).map(([code, name]) => (
-                    <button key={code} onClick={() => { setLang(code as "az" | "en"); setLangDrop(false); }}
+                  {([["az", "Azərbaycan"], ["en", "English"], ["ru", "Русский"]] as [string, string][]).map(([code, name]) => (
+                    <button key={code} onClick={() => { setLang(code as "az" | "en" | "ru"); setLangDrop(false); }}
                       className={`w-full flex items-center gap-3 px-4 py-3 hover:bg-orange-tint transition-colors text-sm font-semibold border-b border-black/[0.05] last:border-0 ${lang === code ? "text-orange" : "text-ink"}`}>
-                      {code === "az" ? <AZ_FLAG /> : <EN_FLAG />}
+                      {code === "az" ? <AZ_FLAG /> : code === "ru" ? <RU_FLAG /> : <EN_FLAG />}
                       {name}
                       {lang === code && <span className="ml-auto text-orange">✓</span>}
                     </button>
@@ -289,11 +297,11 @@ export default function Navbar() {
             {/* Dil seçimi (mobil) */}
             <div className="h-px bg-white/15 my-1" />
             <div className="flex gap-2 px-2">
-              {([["az", "Azərbaycan"], ["en", "English"]] as [string, string][]).map(([code, name]) => (
-                <button key={code} onClick={() => { setLang(code as "az" | "en"); setMobile(false); }}
+              {([["az", "Azərbaycan"], ["en", "English"], ["ru", "Русский"]] as [string, string][]).map(([code, name]) => (
+                <button key={code} onClick={() => { setLang(code as "az" | "en" | "ru"); setMobile(false); }}
                   className={`flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-semibold transition-colors ${lang === code ? "bg-white text-orange" : "bg-white/10 text-white"}`}>
-                  {code === "az" ? <AZ_FLAG /> : <EN_FLAG />}
-                  {name}
+                  {code === "az" ? <AZ_FLAG /> : code === "ru" ? <RU_FLAG /> : <EN_FLAG />}
+                  {code === "az" ? "AZ" : code === "ru" ? "RU" : "EN"}
                 </button>
               ))}
             </div>

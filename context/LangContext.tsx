@@ -1,7 +1,7 @@
 "use client";
 import { createContext, useContext, useState } from "react";
 
-type Lang = "az" | "en";
+type Lang = "az" | "en" | "ru";
 interface LangCtx { lang: Lang; setLang: (l: Lang) => void; }
 
 const LangContext = createContext<LangCtx>({ lang: "az", setLang: () => {} });

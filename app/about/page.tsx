@@ -73,7 +73,7 @@ export default function AboutPage() {
                 <div className="bg-white/95 backdrop-blur rounded-2xl px-5 py-3 flex items-center gap-3 shadow-lg">
                   <img src="/logo.svg" alt="MQ" className="w-8 h-8 rounded-full bg-orange-tint object-contain p-0.5 flex-shrink-0" />
                   <div>
-                    <div className="text-sm font-bold text-ink">MQ {lang === "en" ? "Academy" : "Akademiyası"}</div>
+                    <div className="text-sm font-bold text-ink">MQ {lang === "en" ? "Academy" : lang === "ru" ? "Академия" : "Akademiyası"}</div>
                     <div className="text-xs text-muted">{tr.imgSub}</div>
                   </div>
                 </div>

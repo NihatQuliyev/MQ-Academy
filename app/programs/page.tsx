@@ -34,13 +34,13 @@ export default function ProgramsPage() {
               </div>
               <div className="flex-1">
                 <h3 className="text-2xl font-semibold text-ink mb-2 leading-tight tracking-tight group-hover:text-orange transition-colors duration-200">
-                  {lang === "en" ? p.title_en : p.title}
+                  {lang === "en" ? p.title_en : lang === "ru" ? p.title_ru : p.title}
                 </h3>
-                <p className="text-sm text-muted leading-relaxed">{lang === "en" ? p.desc_en : p.desc}</p>
+                <p className="text-sm text-muted leading-relaxed">{lang === "en" ? p.desc_en : lang === "ru" ? p.desc_ru : p.desc}</p>
                 {p.age && (
                   <div className="mt-3 flex flex-wrap gap-2">
                     <span className="bg-paper border border-ink/[0.08] text-xs font-medium text-ink-3 px-2.5 py-1 rounded-full">
-                      {lang === "en" ? p.age_en : p.age}
+                      {lang === "en" ? p.age_en : lang === "ru" ? p.age_ru : p.age}
                     </span>
                   </div>
                 )}

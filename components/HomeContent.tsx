@@ -24,6 +24,10 @@ const programTagsEn = [
   "Grades 1–4", "Grades 5–8", "Grades 9–11", "General / IELTS",
   "Higher education", "Teachers", "Career", "July–August",
 ];
+const programTagsRu = [
+  "1–4 классы", "5–8 классы", "9–11 классы", "General / IELTS",
+  "Высшее образование", "Учителя", "Карьера", "Июль–Август",
+];
 
 const programDescs = [
   "Dünyagörüş, məntiqi təfəkkür, məktəb bazasının möhkəmləndirilməsi.",
@@ -44,6 +48,16 @@ const programDescsEn = [
   "Systematic preparation for teacher recruitment exam.",
   "Excel, Word, PowerPoint — from scratch to professional.",
   "Programs for a productive and enjoyable summer holiday.",
+];
+const programDescsRu = [
+  "Мировоззрение, логическое мышление, укрепление школьной базы.",
+  "Проработка слабых предметов, формирование базовых знаний.",
+  "Полное соответствие программе ДИМ, подготовка на высокий результат.",
+  "Навыки говорения, письма, аудирования. Пробные экзамены.",
+  "Профессиональная подготовка к вступительным экзаменам в магистратуру.",
+  "Систематическая подготовка к экзамену на приём учителей.",
+  "Excel, Word, PowerPoint — с нуля до профессионала.",
+  "Программы для продуктивного и увлекательного летнего отдыха.",
 ];
 
 import { ProgramIconKey } from "@/lib/programs";
@@ -83,10 +97,9 @@ interface Post {
 export default function HomeContent({ posts }: { posts: Post[] }) {
   const { lang } = useLang();
   const tr = t[lang];
-  const isEn = lang === "en";
 
-  const tags   = isEn ? programTagsEn   : programTags;
-  const descs  = isEn ? programDescsEn  : programDescs;
+  const tags  = lang === "en" ? programTagsEn  : lang === "ru" ? programTagsRu  : programTags;
+  const descs = lang === "en" ? programDescsEn : lang === "ru" ? programDescsRu : programDescs;
 
   return (
     <>

@@ -12,15 +12,14 @@ export default function ProgramDetail({ params }: { params: { slug: string } }) 
 
   const { lang } = useLang();
   const tr = t[lang].programDetail;
-  const isEn = lang === "en";
 
-  const title    = isEn ? program.title_en    : program.title;
-  const hero     = isEn ? program.hero_en     : program.hero;
-  const badges   = isEn ? program.badges_en   : program.badges;
-  const about    = isEn ? program.about_en    : program.about;
-  const subjects = isEn ? program.subjects_en : program.subjects;
-  const features = isEn ? program.features_en : program.features;
-  const targets  = isEn ? program.targets_en  : program.targets;
+  const title    = lang === "en" ? program.title_en    : lang === "ru" ? program.title_ru    : program.title;
+  const hero     = lang === "en" ? program.hero_en     : lang === "ru" ? program.hero_ru     : program.hero;
+  const badges   = lang === "en" ? program.badges_en   : lang === "ru" ? program.badges_ru   : program.badges;
+  const about    = lang === "en" ? program.about_en    : lang === "ru" ? program.about_ru    : program.about;
+  const subjects = lang === "en" ? program.subjects_en : lang === "ru" ? program.subjects_ru : program.subjects;
+  const features = lang === "en" ? program.features_en : lang === "ru" ? program.features_ru : program.features;
+  const targets  = lang === "en" ? program.targets_en  : lang === "ru" ? program.targets_ru  : program.targets;
 
   return (
     <>
@@ -93,7 +92,7 @@ export default function ProgramDetail({ params }: { params: { slug: string } }) 
                     <Link key={p.slug} href={`/programs/${p.slug}`}
                       className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-paper transition-colors no-underline group">
                       <span className="text-orange"><ProgramIcon iconKey={p.icon} /></span>
-                      <span className="text-sm font-medium text-ink group-hover:text-orange transition-colors">{isEn ? p.title_en : p.title}</span>
+                      <span className="text-sm font-medium text-ink group-hover:text-orange transition-colors">{lang === "en" ? p.title_en : lang === "ru" ? p.title_ru : p.title}</span>
                     </Link>
                   ))}
                 <Link href="/programs"

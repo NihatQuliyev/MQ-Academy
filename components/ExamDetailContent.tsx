@@ -15,6 +15,12 @@ const months_en: Record<string, string> = {
   "09": "September", "10": "October", "11": "November", "12": "December",
 };
 
+const months_ru: Record<string, string> = {
+  "01": "Январь", "02": "Февраль", "03": "Март", "04": "Апрель",
+  "05": "Май", "06": "Июнь", "07": "Июль", "08": "Август",
+  "09": "Сентябрь", "10": "Октябрь", "11": "Ноябрь", "12": "Декабрь",
+};
+
 const PhoneIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
     <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
@@ -41,7 +47,7 @@ export default function ExamDetailContent({ exam, hasTopics, topics }: ExamDetai
   const { lang } = useLang();
   const tr = t[lang].examDetail;
 
-  const months = lang === "en" ? months_en : months_az;
+  const months = lang === "en" ? months_en : lang === "ru" ? months_ru : months_az;
 
   function formatDate(dateStr: string) {
     const [y, m, d] = dateStr.split("-");
@@ -121,7 +127,7 @@ export default function ExamDetailContent({ exam, hasTopics, topics }: ExamDetai
                   <p className="text-white/40 text-[10px] font-semibold uppercase tracking-widest mb-1">{tr.dateLabel}</p>
                   <p className="text-white text-2xl font-bold leading-tight">{formatDate(exam.date)}</p>
                   {exam.time && (
-                    <p className="text-orange font-semibold mt-1">{lang === "en" ? "At" : "Saat"} {exam.time}</p>
+                    <p className="text-orange font-semibold mt-1">{lang === "en" ? "At" : lang === "ru" ? "В" : "Saat"} {exam.time}</p>
                   )}
                 </div>
               </div>

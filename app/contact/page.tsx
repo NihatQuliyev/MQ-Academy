@@ -45,21 +45,24 @@ export default function ContactPage() {
   const [activeIdx, setActiveIdx] = useState<number | null>(null);
   const { lang } = useLang();
   const tr = t[lang].contact;
-  const isEn = lang === "en";
-
   const branches = branchData.map((b) => ({
     ...b,
-    name: isEn ? b.name_en : b.name,
-    address: isEn ? b.address_en : b.address,
+    name: lang === "en" ? b.name_en : b.name,
+    address: lang === "en" ? b.address_en : b.address,
   }));
 
-  const centralAddress = isEn ? "Mirza Jabbar Mammadzada 197, Baku" : "Mirzə Cabbar Məmmədzadə 197, Bakı";
+  const centralAddress = lang === "en" ? "Mirza Jabbar Mammadzada 197, Baku"
+    : lang === "ru" ? "Мирза Джаббар Мамедзаде 197, Баку"
+    : "Mirzə Cabbar Məmmədzadə 197, Bakı";
+
+  const phoneLabel = lang === "en" ? "Phone" : lang === "ru" ? "Телефон" : "Telefon";
+  const addressLabel = lang === "en" ? "Central address" : lang === "ru" ? "Центральный адрес" : "Mərkəzi ünvan";
 
   const contacts = [
-    { icon: <PhoneIcon />,    label: isEn ? "Phone" : "Telefon",          links: [{ value: "012 434 85 76", href: "tel:0124348576" }, { value: "010 386 15 24", href: "tel:0103861524" }, { value: "055 871 63 68", href: "tel:0558716368" }] },
-    { icon: <WhatsAppIcon />, label: "WhatsApp",                           links: [{ value: "010 386 15 24", href: "https://wa.me/994103861524" }, { value: "055 871 63 68", href: "https://wa.me/994558716368" }] },
-    { icon: <EmailIcon />,    label: "Email",                              value: "mqakademiya@gmail.com", href: "mailto:mqakademiya@gmail.com" },
-    { icon: <PinIcon />,      label: isEn ? "Central address" : "Mərkəzi ünvan", value: centralAddress },
+    { icon: <PhoneIcon />,    label: phoneLabel,   links: [{ value: "012 434 85 76", href: "tel:0124348576" }, { value: "010 386 15 24", href: "tel:0103861524" }, { value: "055 871 63 68", href: "tel:0558716368" }] },
+    { icon: <WhatsAppIcon />, label: "WhatsApp",   links: [{ value: "010 386 15 24", href: "https://wa.me/994103861524" }, { value: "055 871 63 68", href: "https://wa.me/994558716368" }] },
+    { icon: <EmailIcon />,    label: "Email",       value: "mqakademiya@gmail.com", href: "mailto:mqakademiya@gmail.com" },
+    { icon: <PinIcon />,      label: addressLabel,  value: centralAddress },
   ];
 
   const currentEmbed = activeIdx !== null ? branches[activeIdx].embedUrl : DEFAULT_EMBED;

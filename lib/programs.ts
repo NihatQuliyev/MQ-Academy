@@ -3,20 +3,23 @@ export type ProgramIconKey = "pen" | "trend" | "award" | "globe" | "book" | "cli
 export interface Program {
   slug: string;
   icon: ProgramIconKey;
-  title: string; title_en: string;
-  desc: string;  desc_en: string;
-  hero: string;  hero_en: string;
-  age?: string;  age_en?: string;
+  title: string; title_en: string; title_ru: string;
+  desc: string;  desc_en: string;  desc_ru: string;
+  hero: string;  hero_en: string;  hero_ru: string;
+  age?: string;  age_en?: string;  age_ru?: string;
   duration?: string;
   schedule?: string;
-  badges: string[];   badges_en: string[];
-  about: string[];    about_en: string[];
+  badges: string[];   badges_en: string[];   badges_ru: string[];
+  about: string[];    about_en: string[];    about_ru: string[];
   subjects: { name: string; icon: string }[];
   subjects_en: { name: string; icon: string }[];
+  subjects_ru: { name: string; icon: string }[];
   features: { title: string; desc: string }[];
   features_en: { title: string; desc: string }[];
+  features_ru: { title: string; desc: string }[];
   targets: string[];
   targets_en: string[];
+  targets_ru: string[];
 }
 
 export const programs: Program[] = [
@@ -25,16 +28,21 @@ export const programs: Program[] = [
     icon: "pen",
     title: "İbtidai sinif (1–4)",
     title_en: "Primary School (1–4)",
+    title_ru: "Начальная школа (1–4)",
     desc: "Dünyagörüşün artırılması, məntiqi təfəkkürün inkişafı və məktəb dərslərinin mənimsənilməsi.",
     desc_en: "Expanding worldview, developing logical thinking and mastering school lessons.",
+    desc_ru: "Расширение кругозора, развитие логического мышления и освоение школьной программы.",
     hero: "Möhkəm bilik, güclü baza.",
     hero_en: "Strong knowledge, solid foundation.",
+    hero_ru: "Крепкие знания, надёжный фундамент.",
     age: "1–4 sinif",
     age_en: "Grades 1–4",
+    age_ru: "1–4 классы",
     duration: "9 ay (sentyabr–may)",
     schedule: "Həftədə 3 gün · 60 dəq",
     badges: ["Oyunla öyrənmə", "Kiçik qruplar"],
     badges_en: ["Learning through play", "Small groups"],
+    badges_ru: ["Обучение через игру", "Малые группы"],
     about: [
       "MQ Akademiyasının ibtidai sinif proqramı uşaqları yalnız dərs üçün deyil, həyat üçün hazırlayır. Müasir pedaqoji metodlarla hər uşağın fərdi inkişaf tempi nəzərə alınır.",
       "Məntiqi düşüncə, kreativ yanaşma və sosial bacarıqlar — bunlar akademik biliklərlə paralel inkişaf etdirilir.",
@@ -42,6 +50,10 @@ export const programs: Program[] = [
     about_en: [
       "MQ Academy's primary school program prepares children not just for lessons, but for life. Each child's individual development pace is taken into account using modern pedagogical methods.",
       "Logical thinking, creative approach and social skills — these are developed in parallel with academic knowledge.",
+    ],
+    about_ru: [
+      "Программа начальной школы MQ Академии готовит детей не только к урокам, но и к жизни. Индивидуальный темп развития каждого ребёнка учитывается с помощью современных педагогических методов.",
+      "Логическое мышление, творческий подход и социальные навыки — всё это развивается параллельно с академическими знаниями.",
     ],
     subjects: [
       { name: "Azərbaycan dili", icon: "📝" },
@@ -63,6 +75,16 @@ export const programs: Program[] = [
       { name: "Visual Arts", icon: "🎨" },
       { name: "Technology", icon: "🛠️" },
     ],
+    subjects_ru: [
+      { name: "Азербайджанский язык", icon: "📝" },
+      { name: "Математика", icon: "🔢" },
+      { name: "Окружающий мир", icon: "🌍" },
+      { name: "Английский язык", icon: "🌐" },
+      { name: "Чтение", icon: "📖" },
+      { name: "Логическое мышление", icon: "🧩" },
+      { name: "Изобразительное искусство", icon: "🎨" },
+      { name: "Технология", icon: "🛠️" },
+    ],
     features: [
       { title: "Fərdi yanaşma", desc: "Hər uşağın inkişaf tempinə uyğun tədris planı hazırlanır." },
       { title: "Oyunla öyrənmə", desc: "Dərslər interaktiv, əyləncəli metodlarla keçirilir." },
@@ -75,6 +97,12 @@ export const programs: Program[] = [
       { title: "Small groups", desc: "Maximum 8 students per group — attention for every child." },
       { title: "Parent communication", desc: "Monthly reports and ongoing communication with parents." },
     ],
+    features_ru: [
+      { title: "Индивидуальный подход", desc: "Учебный план составляется с учётом темпа развития каждого ребёнка." },
+      { title: "Обучение через игру", desc: "Уроки проводятся с использованием интерактивных, увлекательных методов." },
+      { title: "Малые группы", desc: "Максимум 8 учеников в группе — внимание каждому ребёнку." },
+      { title: "Связь с родителями", desc: "Ежемесячные отчёты и постоянное общение с родителями." },
+    ],
     targets: [
       "Dərs materiallarını dərindən mənimsəyir, müstəqil işləmə bacarığı qazanır",
       "Məntiqi tapşırıqları həll edir",
@@ -85,22 +113,32 @@ export const programs: Program[] = [
       "Solves logical tasks",
       "Feels comfortable in social settings",
     ],
+    targets_ru: [
+      "Глубоко усваивает учебный материал, приобретает навыки самостоятельной работы",
+      "Решает логические задачи",
+      "Комфортно чувствует себя в обществе",
+    ],
   },
   {
     slug: "tekmillesdirme",
     icon: "trend",
     title: "Təkmilləşdirmə (5–8)",
     title_en: "Improvement (5–8)",
+    title_ru: "Совершенствование (5–8)",
     desc: "Məktəb proqramının dərindən öyrənilməsi, zəif fənlərin gücləndirilməsi və baza biliklərin formalaşdırılması.",
     desc_en: "In-depth study of the school curriculum, strengthening weak subjects and building foundational knowledge.",
+    desc_ru: "Углублённое изучение школьной программы, укрепление слабых предметов и формирование базовых знаний.",
     hero: "Hər fəndə möhkəm bilik — uğurlu gələcəyin təməli.",
     hero_en: "Solid knowledge in every subject — the foundation of a successful future.",
+    hero_ru: "Крепкие знания по каждому предмету — фундамент успешного будущего.",
     age: "5–8 sinif",
     age_en: "Grades 5–8",
+    age_ru: "5–8 классы",
     duration: "9 ay (sentyabr–may)",
     schedule: "Həftədə 2–3 gün · 90 dəq",
     badges: ["Fərdi proqram", "Bütün fənlər"],
     badges_en: ["Individual program", "All subjects"],
+    badges_ru: ["Индивидуальная программа", "Все предметы"],
     about: [
       "5–8-ci sinif şagirdləri üçün hazırlanmış bu proqram məktəb kurikulumunu dərinləşdirir. Hər şagirdin zəif olduğu fənlər aşkar edilir və xüsusi diqqət göstərilir.",
       "Güclü baza biliklər olmadan yuxarı siniflərdə uğur mümkün deyil. Biz bu əsası birlikdə qururuq — səbrlə, ardıcıllıqla, nəticə istiqamətli.",
@@ -108,6 +146,10 @@ export const programs: Program[] = [
     about_en: [
       "This program, designed for grades 5–8, deepens the school curriculum. Each student's weak subjects are identified and given special attention.",
       "Success in higher grades is not possible without strong foundational knowledge. We build this foundation together — patiently, consistently, and result-oriented.",
+    ],
+    about_ru: [
+      "Эта программа, разработанная для 5–8 классов, углубляет школьный курс. Слабые предметы каждого ученика выявляются и им уделяется особое внимание.",
+      "Успех в старших классах невозможен без крепкой базы знаний. Мы строим этот фундамент вместе — терпеливо, последовательно, с ориентацией на результат.",
     ],
     subjects: [
       { name: "Riyaziyyat", icon: "📐" },
@@ -131,6 +173,17 @@ export const programs: Program[] = [
       { name: "Geography", icon: "🗺️" },
       { name: "History", icon: "🏛️" },
     ],
+    subjects_ru: [
+      { name: "Математика", icon: "📐" },
+      { name: "Физика", icon: "⚡" },
+      { name: "Химия", icon: "🧪" },
+      { name: "Азербайджанский язык", icon: "📝" },
+      { name: "Английский язык", icon: "🌐" },
+      { name: "Русский язык", icon: "🇷🇺" },
+      { name: "Биология", icon: "🌿" },
+      { name: "География", icon: "🗺️" },
+      { name: "История", icon: "🏛️" },
+    ],
     features: [
       { title: "Diaqnostik qiymətləndirmə", desc: "İlk həftədə hər şagirdin səviyyəsi müəyyən edilir." },
       { title: "Fərdi plan", desc: "Hər şagird üçün ayrıca tədris cədvəli hazırlanır." },
@@ -142,6 +195,12 @@ export const programs: Program[] = [
       { title: "Individual plan", desc: "A separate study schedule is prepared for each student." },
       { title: "Weekly monitoring", desc: "Regular tests and checking of homework assignments." },
       { title: "Practice bank", desc: "Extensive question bank and school exam materials." },
+    ],
+    features_ru: [
+      { title: "Диагностическая оценка", desc: "Уровень каждого ученика определяется в первую неделю." },
+      { title: "Индивидуальный план", desc: "Для каждого ученика составляется отдельное учебное расписание." },
+      { title: "Еженедельный мониторинг", desc: "Регулярные тесты и проверка домашних заданий." },
+      { title: "База заданий", desc: "Обширный банк вопросов и материалы школьных экзаменов." },
     ],
     targets: [
       "Məktəb qiymətlərini yüksəldir",
@@ -155,22 +214,33 @@ export const programs: Program[] = [
       "Enters university prep with a solid foundation",
       "Becomes a more self-confident student",
     ],
+    targets_ru: [
+      "Повышает оценки в школе",
+      "Развивает любовь и интерес к предметам",
+      "Переходит к подготовке в вуз с крепкой базой",
+      "Становится более уверенным в себе учеником",
+    ],
   },
   {
     slug: "abituriyent",
     icon: "award",
     title: "Abituriyent (9–11)",
     title_en: "University Prep (9–11)",
+    title_ru: "Подготовка в вуз (9–11)",
     desc: "Dövlət İmtahan Mərkəzinin (DİM) proqramına tam uyğun, yüksək nəticə hədəfli universitetə qəbul hazırlığı.",
     desc_en: "University admission preparation fully aligned with the State Examination Centre (DIM) program, targeting high results.",
+    desc_ru: "Подготовка к поступлению в вуз, полностью соответствующая программе ГЭЦ (ДИМ), с целью получения высокого результата.",
     hero: "DİM-ə hazırlan, arzuladığın universiteti qazan.",
     hero_en: "Prepare for DIM, win your dream university.",
+    hero_ru: "Готовься к ДИМ, поступи в желаемый университет.",
     age: "9–11 sinif",
     age_en: "Grades 9–11",
+    age_ru: "9–11 классы",
     duration: "1–2 il",
     schedule: "Həftədə 4–5 gün · 90 dəq",
     badges: ["DİM proqramı", "Yüksək nəticə", "Hər qrup fənni"],
     badges_en: ["DIM program", "High results", "All subject groups"],
+    badges_ru: ["Программа ДИМ", "Высокий результат", "Все группы предметов"],
     about: [
       "MQ Akademiyasının abituriyent proqramı DİM-in rəsmi imtahan formatına tam uyğun hazırlanmışdır. Hər fənn üzrə ixtisaslaşmış müəllimlər şagirdlərə real imtahan şəraitini yaşatmağa kömək edir.",
       "İl ərzində keçirilən sınaq imtahanları, zamanla artırılan çətinlik dərəcəsi və intensiv çalışma — bunlar yüksək bala aparan yoldur. Hər şagirdin hədəfi müəyyən edilir və o hədəfə birlikdə çatılır.",
@@ -178,6 +248,10 @@ export const programs: Program[] = [
     about_en: [
       "MQ Academy's university prep program is fully aligned with the official DIM exam format. Specialist teachers in each subject help students experience real exam conditions.",
       "Practice exams held throughout the year, gradually increasing difficulty levels and intensive study — these are the path to a high score. Each student's goal is identified and reached together.",
+    ],
+    about_ru: [
+      "Программа MQ Академии для абитуриентов полностью соответствует официальному формату экзамена ДИМ. Учителя-специалисты по каждому предмету помогают ученикам почувствовать условия реального экзамена.",
+      "Пробные экзамены в течение года, постепенно возрастающий уровень сложности и интенсивная подготовка — вот путь к высокому баллу. Цель каждого ученика определяется и достигается совместно.",
     ],
     subjects: [
       { name: "Riyaziyyat", icon: "📐" },
@@ -203,6 +277,18 @@ export const programs: Program[] = [
       { name: "English Language", icon: "🌐" },
       { name: "Informatics", icon: "💻" },
     ],
+    subjects_ru: [
+      { name: "Математика", icon: "📐" },
+      { name: "Физика", icon: "⚡" },
+      { name: "Химия", icon: "🧪" },
+      { name: "Биология", icon: "🌿" },
+      { name: "География", icon: "🗺️" },
+      { name: "История", icon: "🏛️" },
+      { name: "Азербайджанский язык", icon: "📝" },
+      { name: "Литература", icon: "📚" },
+      { name: "Английский язык", icon: "🌐" },
+      { name: "Информатика", icon: "💻" },
+    ],
     features: [
       { title: "Sınaq imtahanları", desc: "Ayda 1–2 dəfə real DİM şəraitini simulyasiya edən imtahanlar." },
       { title: "Sual analizi", desc: "Keçmiş illərin bütün DİM sualları sistemli şəkildə işlənir." },
@@ -214,6 +300,12 @@ export const programs: Program[] = [
       { title: "Question analysis", desc: "All past DIM questions are systematically worked through." },
       { title: "Time management", desc: "Special techniques to improve speed and accuracy." },
       { title: "Motivation support", desc: "Psychological preparation, stress management and motivation sessions." },
+    ],
+    features_ru: [
+      { title: "Пробные экзамены", desc: "1–2 экзамена в месяц, имитирующие реальные условия ДИМ." },
+      { title: "Анализ вопросов", desc: "Все вопросы ДИМ прошлых лет прорабатываются систематически." },
+      { title: "Управление временем", desc: "Специальные техники для повышения скорости и точности." },
+      { title: "Поддержка мотивации", desc: "Психологическая подготовка, управление стрессом и сессии мотивации." },
     ],
     targets: [
       "Yüksək DİM balı toplayır",
@@ -227,22 +319,33 @@ export const programs: Program[] = [
       "Prepared for exam psychology",
       "Manages time effectively",
     ],
+    targets_ru: [
+      "Набирает высокий балл ДИМ",
+      "Поступает на выбранную специальность",
+      "Психологически готов к экзамену",
+      "Эффективно управляет временем",
+    ],
   },
   {
     slug: "xarici-dil",
     icon: "globe",
     title: "Xarici dil",
     title_en: "Foreign Language",
+    title_ru: "Иностранный язык",
     desc: "Danışıq, yazı və dinləmə bacarıqlarının inkişafı. General English və IELTS hazırlığı.",
     desc_en: "Developing speaking, writing and listening skills. General English and IELTS preparation.",
+    desc_ru: "Развитие навыков говорения, письма и аудирования. Подготовка к General English и IELTS.",
     hero: "İngilis dilini öyrən — dünyaya açıl.",
     hero_en: "Learn English — open the world.",
+    hero_ru: "Учи английский — открой мир.",
     age: "Hər yaş",
     age_en: "All ages",
+    age_ru: "Любой возраст",
     duration: "6–12 ay (səviyyəyə görə)",
     schedule: "Həftədə 3 gün · 90 dəq",
     badges: ["General English", "IELTS", "Hər səviyyə"],
     badges_en: ["General English", "IELTS", "All levels"],
+    badges_ru: ["General English", "IELTS", "Все уровни"],
     about: [
       "Başlanğıcdan C1 səviyyəsinə, General English-dən IELTS hazırlığına — MQ Akademiyasında bütün dil ehtiyaclarınız qarşılanır. Dərslərimiz kommunikativ metodoloji əsasında qurulub.",
       "Real həyat situasiyaları, autentik materiallar və intensiv danışıq məşqləri ilə tələbələrimiz qısa müddətdə dil baryerini aşır. IELTS hazırlığı üçün isə xüsusi bal strategiyaları tədris edilir.",
@@ -250,6 +353,10 @@ export const programs: Program[] = [
     about_en: [
       "From beginner to C1 level, from General English to IELTS preparation — all your language needs are met at MQ Academy. Our lessons are built on a communicative methodology.",
       "With real-life situations, authentic materials and intensive speaking practice, our students overcome the language barrier quickly. Special score strategies are also taught for IELTS preparation.",
+    ],
+    about_ru: [
+      "От начального до уровня C1, от General English до подготовки к IELTS — все ваши языковые потребности удовлетворяются в MQ Академии. Наши уроки построены на коммуникативной методологии.",
+      "Благодаря реальным жизненным ситуациям, аутентичным материалам и интенсивной разговорной практике наши студенты быстро преодолевают языковой барьер. Для подготовки к IELTS также преподаются специальные стратегии получения баллов.",
     ],
     subjects: [
       { name: "Speaking", icon: "🗣️" },
@@ -267,6 +374,14 @@ export const programs: Program[] = [
       { name: "Grammar", icon: "📚" },
       { name: "IELTS Preparation", icon: "🎯" },
     ],
+    subjects_ru: [
+      { name: "Говорение", icon: "🗣️" },
+      { name: "Аудирование", icon: "👂" },
+      { name: "Чтение", icon: "📖" },
+      { name: "Письмо", icon: "✍️" },
+      { name: "Грамматика", icon: "📚" },
+      { name: "Подготовка к IELTS", icon: "🎯" },
+    ],
     features: [
       { title: "Kommunikativ metod", desc: "Dərsin 60%-i canlı danışıq və müzakirə üzərinde qurulub." },
       { title: "Autentik materiallar", desc: "BBC, TED Talks, Guardian və digər real mənbələrdən materiallar." },
@@ -278,6 +393,12 @@ export const programs: Program[] = [
       { title: "Authentic materials", desc: "Materials from BBC, TED Talks, Guardian and other real sources." },
       { title: "IELTS strategies", desc: "Special approaches and sample answers for each task type." },
       { title: "Level tests", desc: "An official progress test is held every 6 weeks." },
+    ],
+    features_ru: [
+      { title: "Коммуникативный метод", desc: "60% урока построено на живом общении и обсуждении." },
+      { title: "Аутентичные материалы", desc: "Материалы из BBC, TED Talks, Guardian и других реальных источников." },
+      { title: "Стратегии IELTS", desc: "Специальные подходы и образцы ответов для каждого типа задания." },
+      { title: "Тесты уровня", desc: "Официальный тест прогресса проводится каждые 6 недель." },
     ],
     targets: [
       "Sərbəst ünsiyyət qura bilir",
@@ -291,22 +412,33 @@ export const programs: Program[] = [
       "Written English skills are strengthened",
       "Develops a positive attitude towards language learning",
     ],
+    targets_ru: [
+      "Может свободно общаться",
+      "Достигает целевого балла IELTS",
+      "Навыки письменного английского улучшаются",
+      "Развивает позитивное отношение к изучению языков",
+    ],
   },
   {
     slug: "magistr",
     icon: "book",
     title: "Magistr hazırlığı",
     title_en: "Master's Degree Preparation",
+    title_ru: "Подготовка к магистратуре",
     desc: "Universitet məzunlarının magistratura pilləsinə peşəkar səviyyədə hazırlığı.",
     desc_en: "Professional-level preparation of university graduates for the master's degree stage.",
+    desc_ru: "Профессиональная подготовка выпускников вузов к ступени магистратуры.",
     hero: "Karyeranın növbəti mərhələsi — magistratura.",
     hero_en: "The next stage of your career — master's degree.",
+    hero_ru: "Следующий этап карьеры — магистратура.",
     age: "Bakalavr məzunları",
     age_en: "Bachelor's graduates",
+    age_ru: "Выпускники бакалавриата",
     duration: "6–9 ay",
     schedule: "Həftədə 3–4 gün · 90 dəq",
     badges: ["Magistratura", "Peşəkar hazırlıq", "Bütün ixtisaslar"],
     badges_en: ["Master's degree", "Professional preparation", "All majors"],
+    badges_ru: ["Магистратура", "Профессиональная подготовка", "Все специальности"],
     about: [
       "Magistratura imtahanı ciddi hazırlıq tələb edir. MQ Akademiyası bu prosesdə sizə tam dəstək verir — imtahan formatından tutmuş mövzuların dərindən işlənməsinə qədər.",
       "Xüsusi fənn biliklərini, imtahan strategiyalarını və zaman idarəetməsini birlikdə məşq edəcəyik. Məzunlarımız hər il uğurla magistraturaya qəbul olunur.",
@@ -314,6 +446,10 @@ export const programs: Program[] = [
     about_en: [
       "The master's exam requires serious preparation. MQ Academy provides you with full support throughout this process — from the exam format to the in-depth study of topics.",
       "We will practise specialist subject knowledge, exam strategies and time management together. Our graduates are successfully admitted to master's programs every year.",
+    ],
+    about_ru: [
+      "Вступительный экзамен в магистратуру требует серьёзной подготовки. MQ Академия обеспечивает вам полную поддержку на протяжении всего этого процесса — от формата экзамена до углублённой проработки тем.",
+      "Мы вместе будем отрабатывать специальные предметные знания, стратегии сдачи экзаменов и управление временем. Наши выпускники ежегодно успешно поступают в магистратуру.",
     ],
     subjects: [
       { name: "İxtisas fənni", icon: "🎓" },
@@ -327,6 +463,12 @@ export const programs: Program[] = [
       { name: "General knowledge", icon: "🧠" },
       { name: "Test strategy", icon: "📋" },
     ],
+    subjects_ru: [
+      { name: "Профильный предмет", icon: "🎓" },
+      { name: "Иностранный язык", icon: "🌐" },
+      { name: "Общие знания", icon: "🧠" },
+      { name: "Стратегия теста", icon: "📋" },
+    ],
     features: [
       { title: "İmtahan analizi", desc: "Əvvəlki illərin magistr imtahan sualları ətraflı işlənir." },
       { title: "Fərdi yanaşma", desc: "Hər tələbənin zəif tərəfləri müəyyənləşdirilir və fərdi plan qurulur." },
@@ -339,6 +481,12 @@ export const programs: Program[] = [
       { title: "Practice exams", desc: "Practice exams simulating real exam conditions." },
       { title: "Result guarantee", desc: "Each student's exam score is regularly tracked and the plan is adjusted to reach the target." },
     ],
+    features_ru: [
+      { title: "Анализ экзаменов", desc: "Вопросы вступительных экзаменов в магистратуру прошлых лет прорабатываются детально." },
+      { title: "Индивидуальный подход", desc: "Слабые стороны каждого студента выявляются и составляется индивидуальный план." },
+      { title: "Пробные экзамены", desc: "Тренировочные экзамены, имитирующие реальные условия." },
+      { title: "Гарантия результата", desc: "Экзаменационный балл каждого студента регулярно отслеживается, план корректируется для достижения цели." },
+    ],
     targets: [
       "Magistratura imtahanında yüksək bal alır",
       "Arzuladığı universitetə qəbul olur",
@@ -347,22 +495,31 @@ export const programs: Program[] = [
       "Achieves a high score in the master's exam",
       "Gets accepted to their desired university",
     ],
+    targets_ru: [
+      "Получает высокий балл на вступительном экзамене в магистратуру",
+      "Поступает в желаемый университет",
+    ],
   },
   {
     slug: "miq",
     icon: "clip",
     title: "MİQ — Müəllimlərin İmtahanı",
     title_en: "MIQ — Teachers' Exam",
+    title_ru: "МИК — Экзамен для учителей",
     desc: "Müəllimlərin işə qəbul imtahanlarına peşəkar səviyyədə hazırlığı.",
     desc_en: "Professional-level preparation for teachers' employment exams.",
+    desc_ru: "Профессиональная подготовка к экзаменам на приём учителей.",
     hero: "MİQ-i keç, peşəkar müəllim kimi çalış.",
     hero_en: "Pass MIQ, work as a professional teacher.",
+    hero_ru: "Сдай МИК, работай как профессиональный учитель.",
     age: "Pedaqoji ixtisas sahibləri",
     age_en: "Holders of a pedagogical qualification",
+    age_ru: "Обладатели педагогической квалификации",
     duration: "4–6 ay",
     schedule: "Həftədə 3 gün · 90 dəq",
     badges: ["MİQ formatı", "Pedaqogika", "Fənn bilikləri"],
     badges_en: ["MIQ format", "Pedagogy", "Subject knowledge"],
+    badges_ru: ["Формат МИК", "Педагогика", "Предметные знания"],
     about: [
       "MİQ imtahanı müəllimlik sertifikatı almaq istəyən hər kəs üçün vacib bir addımdır. MQ Akademiyasında bu imtahana sistematik və məqsədyönlü hazırlıq təmin edilir.",
       "Hər mövzu aydın izah, strukturlu təkrar və praktiki məşqlərlə möhkəmləndirilir. Müəllimlərimiz sizi imtahana deyil, uğura hazırlayır.",
@@ -370,6 +527,10 @@ export const programs: Program[] = [
     about_en: [
       "The MIQ exam is an important step for anyone who wants to obtain a teaching certificate. MQ Academy provides systematic and goal-oriented preparation for this exam.",
       "Each topic is reinforced with clear explanations, structured revision and practical exercises. Our teachers prepare you not just for the exam, but for success.",
+    ],
+    about_ru: [
+      "Экзамен МИК — важный шаг для всех, кто хочет получить педагогический сертификат. MQ Академия обеспечивает систематическую и целенаправленную подготовку к этому экзамену.",
+      "Каждая тема закрепляется чёткими объяснениями, структурированным повторением и практическими упражнениями. Наши учителя готовят вас не просто к экзамену, а к успеху.",
     ],
     subjects: [
       { name: "İxtisas fənni", icon: "📚" },
@@ -383,6 +544,12 @@ export const programs: Program[] = [
       { name: "Interview stage", icon: "🗣️" },
       { name: "Curriculum", icon: "📋" },
     ],
+    subjects_ru: [
+      { name: "Профильный предмет", icon: "📚" },
+      { name: "Стратегия теста", icon: "📋" },
+      { name: "Этап собеседования", icon: "🗣️" },
+      { name: "Куррикулум", icon: "📋" },
+    ],
     features: [
       { title: "MİQ formatına tam uyğun", desc: "Rəsmi imtahan strukturuna görə qurulmuş tədris planı." },
       { title: "Sual analizi", desc: "Son illərin bütün MİQ sualları sistemli şəkildə işlənir." },
@@ -395,6 +562,12 @@ export const programs: Program[] = [
       { title: "Pedagogical knowledge", desc: "Modern teaching methods, classroom management, assessment." },
       { title: "Strong support", desc: "Mini test and result analysis every week." },
     ],
+    features_ru: [
+      { title: "Полное соответствие формату МИК", desc: "Учебный план составлен в соответствии с официальной структурой экзамена." },
+      { title: "Анализ вопросов", desc: "Все вопросы МИК последних лет прорабатываются систематически." },
+      { title: "Педагогические знания", desc: "Современные методы преподавания, управление классом, оценивание." },
+      { title: "Сильная поддержка", desc: "Мини-тест и анализ результатов каждую неделю." },
+    ],
     targets: [
       "MİQ imtahanından uğurla keçir",
       "Müasir pedaqoji bilikləri mənimsəyir",
@@ -403,22 +576,31 @@ export const programs: Program[] = [
       "Successfully passes the MIQ exam",
       "Masters modern pedagogical knowledge",
     ],
+    targets_ru: [
+      "Успешно сдаёт экзамен МИК",
+      "Осваивает современные педагогические знания",
+    ],
   },
   {
     slug: "ofis-proqramlari",
     icon: "monitor",
     title: "Ofis proqramları",
     title_en: "Office Programs",
+    title_ru: "Офисные программы",
     desc: "Karyerada uğur qazanmaq üçün zəruri kompüter proqramlarının sıfırdan öyrənilməsi.",
     desc_en: "Learning essential computer programs from scratch for career success.",
+    desc_ru: "Освоение необходимых компьютерных программ с нуля для карьерного успеха.",
     hero: "Kompüter bacarıqları — müasir iş dünyasının açarı.",
     hero_en: "Computer skills — the key to the modern work world.",
+    hero_ru: "Компьютерные навыки — ключ к современному рабочему миру.",
     age: "Hər yaş",
     age_en: "All ages",
+    age_ru: "Любой возраст",
     duration: "3–6 ay",
     schedule: "Həftədə 3 gün · 90 dəq",
     badges: ["Microsoft Office", "Sıfırdan", "Sertifikat"],
     badges_en: ["Microsoft Office", "From scratch", "Certificate"],
+    badges_ru: ["Microsoft Office", "С нуля", "Сертификат"],
     about: [
       "Müasir iş mühitində kompüter bacarıqları əsas tələb halına gəlib. MQ Akademiyasında Microsoft Office paketini sıfırdan öyrənib peşəkar səviyyəyə çata bilərsiniz.",
       "Praktiki tapşırıqlar, real iş ssenarilərinin simulyasiyası və addım-addım öyrədim metodu ilə qısa müddətdə iş proseslərini daha sürətli, dəqiq və effektiv yerinə yetirəcəksiniz.",
@@ -426,6 +608,10 @@ export const programs: Program[] = [
     about_en: [
       "Computer skills have become a fundamental requirement in the modern work environment. At MQ Academy, you can learn the Microsoft Office suite from scratch and reach a professional level.",
       "With practical tasks, simulation of real work scenarios and a step-by-step teaching method, you will carry out work processes faster, more accurately and more effectively in a short time.",
+    ],
+    about_ru: [
+      "Компьютерные навыки стали основным требованием в современной рабочей среде. В MQ Академии вы можете освоить пакет Microsoft Office с нуля и достичь профессионального уровня.",
+      "С помощью практических заданий, имитации реальных рабочих сценариев и пошагового метода обучения вы будете выполнять рабочие процессы быстрее, точнее и эффективнее в короткие сроки.",
     ],
     subjects: [
       { name: "Microsoft Word", icon: "📄" },
@@ -441,6 +627,13 @@ export const programs: Program[] = [
       { name: "Microsoft Outlook", icon: "📧" },
       { name: "Basic skills", icon: "💻" },
     ],
+    subjects_ru: [
+      { name: "Microsoft Word", icon: "📄" },
+      { name: "Microsoft Excel", icon: "📊" },
+      { name: "Microsoft PowerPoint", icon: "📽️" },
+      { name: "Microsoft Outlook", icon: "📧" },
+      { name: "Начальные навыки", icon: "💻" },
+    ],
     features: [
       { title: "Sıfırdan başlayır", desc: "Heç bir ön bilik tələb olunmur, tamamilə əsasdan öyrənilir." },
       { title: "Praktik yönümlü", desc: "Hər dərsdə real iş tapşırıqları yerinə yetirilir." },
@@ -452,6 +645,12 @@ export const programs: Program[] = [
       { title: "Practice-oriented", desc: "Real work tasks are completed in every lesson." },
       { title: "Official certificate", desc: "Students who complete the course receive MQ Academy's official certificate." },
       { title: "Small groups", desc: "Individual attention in a group of maximum 6 people." },
+    ],
+    features_ru: [
+      { title: "Начинается с нуля", desc: "Предварительные знания не требуются, обучение идёт полностью с основ." },
+      { title: "Практикоориентированность", desc: "На каждом уроке выполняются реальные рабочие задания." },
+      { title: "Официальный сертификат", desc: "Студентам, завершившим курс, выдаётся официальный сертификат MQ Академии." },
+      { title: "Малые группы", desc: "Индивидуальное внимание в группе максимум 6 человек." },
     ],
     targets: [
       "Excel-də cədvəl və hesabat hazırlayır",
@@ -465,22 +664,33 @@ export const programs: Program[] = [
       "Prepares presentations with PowerPoint",
       "Meets computer knowledge requirements in job applications",
     ],
+    targets_ru: [
+      "Составляет таблицы и отчёты в Excel",
+      "Оформляет профессиональные документы в Word",
+      "Готовит презентации в PowerPoint",
+      "Соответствует требованиям к компьютерным знаниям при трудоустройстве",
+    ],
   },
   {
     slug: "yay-mektepleri",
     icon: "sun",
     title: "Yay məktəbləri",
     title_en: "Summer Schools",
+    title_ru: "Летние школы",
     desc: "Şagirdlərin yay tətilini həm əyləncəli, həm də intellektual keçirmələri üçün xüsusi inkişaf proqramları.",
     desc_en: "Special development programs for students to spend the summer holidays both enjoyably and intellectually.",
+    desc_ru: "Специальные развивающие программы, чтобы ученики провели летние каникулы и с пользой, и с интересом.",
     hero: "Yayı boş keçirmə — inkişaf et, əylən, tanış ol.",
     hero_en: "Don't waste the summer — develop, have fun, make friends.",
+    hero_ru: "Не трать лето впустую — развивайся, веселись, знакомься.",
     age: "6–16 yaş",
     age_en: "Ages 6–16",
+    age_ru: "6–16 лет",
     duration: "4–8 həftə (iyun–avqust)",
     schedule: "Həftə içi · Hər gün · 4 saat",
     badges: ["Yay tətili", "Əyləncə + Bilik", "Fənlər"],
     badges_en: ["Summer holiday", "Fun + Knowledge", "Subjects"],
+    badges_ru: ["Летние каникулы", "Веселье + Знания", "Предметы"],
     about: [
       "MQ Akademiyasının yay məktəbi şagirdlərə tətili boş keçirməmək üçün ən yaxşı fürsəti verir. Bilik, əylənc və yeni dostlar — hamısı bir yerdə.",
       "Hər yaş qrupu üçün fərqli proqramlar hazırlanmışdır. Sabah dərsləri akademik mövzuları, günorta fəaliyyətlər isə kreativ, idman və komanda oyunlarını əhatə edir.",
@@ -489,6 +699,10 @@ export const programs: Program[] = [
       "MQ Academy's summer school gives students the best opportunity not to waste the holiday. Knowledge, fun and new friends — all in one place.",
       "Different programs have been prepared for each age group. Morning lessons cover academic topics, while afternoon activities include creative, sports and team games.",
     ],
+    about_ru: [
+      "Летняя школа MQ Академии даёт ученикам лучшую возможность провести каникулы с пользой. Знания, веселье и новые друзья — всё в одном месте.",
+      "Для каждой возрастной группы подготовлены различные программы. Утренние занятия охватывают академические темы, а дневные активности включают творческие, спортивные и командные игры.",
+    ],
     subjects: [
       { name: "Yaradıcı yazı", icon: "✍️" },
       { name: "Məntiqi oyunlar", icon: "🧩" },
@@ -496,6 +710,10 @@ export const programs: Program[] = [
     subjects_en: [
       { name: "Creative writing", icon: "✍️" },
       { name: "Logic games", icon: "🧩" },
+    ],
+    subjects_ru: [
+      { name: "Творческое письмо", icon: "✍️" },
+      { name: "Логические игры", icon: "🧩" },
     ],
     features: [
       { title: "Komanda ruhu", desc: "Qrup fəaliyyətləri ilə sosial bacarıqlar inkişaf edir." },
@@ -509,6 +727,12 @@ export const programs: Program[] = [
       { title: "Safe environment", desc: "A supervised, healthy and stimulating learning environment." },
       { title: "Weekly report", desc: "A weekly development summary is sent to parents." },
     ],
+    features_ru: [
+      { title: "Командный дух", desc: "Социальные навыки развиваются через групповые активности." },
+      { title: "Разные программы", desc: "Отдельно составленный план активностей для каждой возрастной группы." },
+      { title: "Безопасная среда", desc: "Контролируемая, здоровая и стимулирующая учебная среда." },
+      { title: "Еженедельный отчёт", desc: "Еженедельная сводка развития отправляется родителям." },
+    ],
     targets: [
       "Tətili məhsuldar keçirir",
       "Yeni dostlar qazanır",
@@ -520,6 +744,12 @@ export const programs: Program[] = [
       "Makes new friends",
       "Consolidates academic knowledge",
       "Develops creative thinking",
+    ],
+    targets_ru: [
+      "Проводит каникулы продуктивно",
+      "Заводит новых друзей",
+      "Закрепляет академические знания",
+      "Развивает творческое мышление",
     ],
   },
 ];
