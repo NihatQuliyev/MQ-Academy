@@ -50,10 +50,8 @@ export const programs: Program[] = [
       { name: "İngilis dili", icon: "🌐" },
       { name: "Oxu", icon: "📖" },
       { name: "Məntiqi düşüncə", icon: "🧩" },
-      { name: "Musiqi", icon: "🎵" },
       { name: "Təsviri incəsənət", icon: "🎨" },
       { name: "Texnologiya", icon: "🛠️" },
-      { name: "Bədən tərbiyəsi", icon: "⚽" },
     ],
     subjects_en: [
       { name: "Azerbaijani Language", icon: "📝" },
@@ -62,10 +60,8 @@ export const programs: Program[] = [
       { name: "English Language", icon: "🌐" },
       { name: "Reading", icon: "📖" },
       { name: "Logical Thinking", icon: "🧩" },
-      { name: "Music", icon: "🎵" },
       { name: "Visual Arts", icon: "🎨" },
       { name: "Technology", icon: "🛠️" },
-      { name: "Physical Education", icon: "⚽" },
     ],
     features: [
       { title: "Fərdi yanaşma", desc: "Hər uşağın inkişaf tempinə uyğun tədris planı hazırlanır." },
