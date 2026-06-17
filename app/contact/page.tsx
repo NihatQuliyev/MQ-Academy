@@ -5,30 +5,34 @@ import t from "@/lib/translations";
 
 const branchData = [
   {
-    name: "İnşaatçılar",       name_en: "Inshaatchilar",
+    name: "İnşaatçılar",       name_en: "Inshaatchilar",       name_ru: "Иншаатчылар",
     address: "Mirzə Cabbar Məmmədzadə 197, Bakı",
     address_en: "Mirza Jabbar Mammadzada 197, Baku",
+    address_ru: "Мирза Джаббар Мамедзаде 197, Баку",
     embedUrl: "https://maps.google.com/maps?q=Mirzə+Cabbar+Məmmədzadə+197,Bakı,Azerbaijan&output=embed&z=17",
     mapsUrl: "https://www.google.com/maps/search/Mirzə+Cabbar+Məmmədzadə+197+Bakı+Azerbaijan",
   },
   {
-    name: "Xalqlar",            name_en: "Khalqlar",
+    name: "Xalqlar",            name_en: "Khalqlar",            name_ru: "Халглар",
     address: "Nizami rayonu, Babək prospekti 2390, Bakı",
     address_en: "Nizami district, Babak avenue 2390, Baku",
+    address_ru: "Низами район, проспект Бабека 2390, Баку",
     embedUrl: "https://maps.google.com/maps?q=40.3967163,49.9500691&output=embed&z=17",
     mapsUrl: "https://www.google.com/maps/place/40%C2%B023'48.2%22N+49%C2%B057'00.3%22E/@40.3967163,49.9474942,17z/data=!3m1!4b1!4m4!3m3!8m2!3d40.3967163!4d49.9500691?hl=en&entry=ttu&g_ep=EgoyMDI2MDYxMy4wIKXMDSoASAFQAw%3D%3D",
   },
   {
-    name: "Xırdalan",           name_en: "Khirdalan",
+    name: "Xırdalan",           name_en: "Khirdalan",           name_ru: "Хырдалан",
     address: "Xırdalan şəhəri, Abşeron",
     address_en: "Khirdalan city, Absheron",
+    address_ru: "Город Хырдалан, Абшерон",
     embedUrl: "https://maps.google.com/maps?q=Xırdalan,Abşeron,Azerbaijan&output=embed&z=15",
     mapsUrl: "https://www.google.com/maps/search/Xırdalan+Abşeron+Azerbaijan",
   },
   {
-    name: "Binəqədi",           name_en: "Binagadi",
+    name: "Binəqədi",           name_en: "Binagadi",            name_ru: "Бинагади",
     address: "Binəqədi qəsəbəsi, Bakı",
     address_en: "Binagadi settlement, Baku",
+    address_ru: "Посёлок Бинагади, Баку",
     embedUrl: "https://maps.google.com/maps?q=Binəqədi,Bakı,Azerbaijan&output=embed&z=15",
     mapsUrl: "https://www.google.com/maps/search/Binəqədi+Bakı+Azerbaijan",
   },
@@ -47,8 +51,8 @@ export default function ContactPage() {
   const tr = t[lang].contact;
   const branches = branchData.map((b) => ({
     ...b,
-    name: lang === "en" ? b.name_en : b.name,
-    address: lang === "en" ? b.address_en : b.address,
+    name: lang === "en" ? b.name_en : lang === "ru" ? b.name_ru : b.name,
+    address: lang === "en" ? b.address_en : lang === "ru" ? b.address_ru : b.address,
   }));
 
   const centralAddress = lang === "en" ? "Mirza Jabbar Mammadzada 197, Baku"
