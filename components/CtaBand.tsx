@@ -71,7 +71,7 @@ export default function CtaBand() {
                 </svg>
               </div>
               <div>
-                <p className="text-[10px] text-white/40 font-semibold uppercase tracking-widest mb-1">Telefon</p>
+                <p className="text-[10px] text-white/40 font-semibold uppercase tracking-widest mb-1">{lang === "en" ? "Phone" : lang === "ru" ? "Телефон" : "Telefon"}</p>
                 <a href="tel:+994103861524" className="block text-white font-semibold no-underline hover:text-orange transition-colors">010 386 15 24</a>
                 <a href="tel:+994124348576" className="block text-white font-semibold no-underline hover:text-orange transition-colors mt-0.5">012 434 85 76</a>
               </div>
@@ -98,7 +98,7 @@ export default function CtaBand() {
                 </svg>
               </div>
               <div>
-                <p className="text-[10px] text-white/40 font-semibold uppercase tracking-widest mb-0.5">E-mail</p>
+                <p className="text-[10px] text-white/40 font-semibold uppercase tracking-widest mb-0.5">{lang === "ru" ? "Эл. почта" : "E-mail"}</p>
                 <p className="text-white font-semibold">mqakademiya@gmail.com</p>
               </div>
             </a>
