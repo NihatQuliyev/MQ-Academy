@@ -18,11 +18,17 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://mqacademy.az",
   },
+  icons: {
+    icon: "/logo.svg",
+    shortcut: "/logo.svg",
+    apple: "/logo.svg",
+  },
   openGraph: {
     title: "MQ Akademiyası — Keyfiyyətli təhsil, real nəticə",
     description: "Abituriyent, magistr, xarici dil, ofis proqramları və daha çox. 4 filial — Bakı və Abşeron.",
     url: "https://mqacademy.az",
     siteName: "MQ Akademiyası",
+    images: [{ url: "/logo.svg", width: 512, height: 512, alt: "MQ Akademiyası" }],
     locale: "az_AZ",
     type: "website",
   },
